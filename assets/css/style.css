@@ -1,0 +1,127 @@
+body {
+	margin: 0 auto;
+	
+}
+
+section {
+	background-color:#1b1c1d;
+	height: 600px;
+	margin: 0 auto;
+	padding-top: 0px;
+	text-align: center;
+
+}
+
+#spaceMaker {
+	margin: 0 auto;
+	text-align: center;
+	height: 200px;
+
+}
+
+.container h1 {
+	font-size: 80px;
+	color: white;
+
+}
+
+.container h2 {
+	color: white;
+	font-size: 21px;
+
+}
+
+p {
+	color: black;
+	z-index: 1;
+	font-size: 50px;
+
+}
+
+#heading {
+	position: fixed;
+	height: 90px;
+	width: 100%;
+
+}
+
+
+#floatLeft {
+	float: left;
+	margin-left: 2%;
+	margin-top: 8px;
+
+}
+
+/*#floatLeft:hover {
+	transform: scale(1.1); 
+}*/
+
+#headerIcons {
+	float: right;
+	margin-right: 2%;
+	padding: 10px;
+
+}
+
+a p {
+	color: #00CED1;
+	text-align: center;
+	font-size: 20px;
+	text-decoration: none;
+
+}
+
+a {
+	text-decoration: none;
+
+}
+
+	a:hover {
+		background: #1b1c1d;
+
+	}
+
+.thumbnail {
+	width: 250px;
+	margin: 0 auto;
+	margin-top: 150px;
+
+}
+
+#page3 {
+	background: url("http://mirthmarfa.com/wp-content/uploads/2013/02/background.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	height: 100%;
+	min-height: 1000px;
+
+}
+
+#page3text {
+	font-size: 50px;
+	text-align: center;
+	padding-top: 150px;
+
+}
+
+#wrapper2 {
+	background-color: white;
+	height: 600px;
+	margin: 0 auto;
+	padding-top: 0px;
+
+}
+
+#media {
+	
+	margin: 0 auto;
+	margin-top: 100px;
+	width: 90%;
+	background: ivory;
+	border-radius: 10px;
+	box-shadow: 5px 5px 5px grey;
+	text-align: center;	
+
+}
