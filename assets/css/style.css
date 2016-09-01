@@ -1,6 +1,6 @@
 body {
 	margin: 0 auto;
-	
+
 }
 
 section {
@@ -69,6 +69,7 @@ a p {
 	text-align: center;
 	font-size: 20px;
 	text-decoration: none;
+	font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 
 }
 
@@ -103,7 +104,13 @@ a {
 	font-size: 50px;
 	text-align: center;
 	padding-top: 150px;
+	font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 
+}
+
+#page4 {
+	border: 2px solid black;
+	text-align: center;
 }
 
 #wrapper2 {
@@ -111,6 +118,14 @@ a {
 	height: 600px;
 	margin: 0 auto;
 	padding-top: 0px;
+
+}
+
+#menu {
+
+	float: right;
+	margin-right: 60px;
+	padding-top: 40px;
 
 }
 
@@ -123,5 +138,8 @@ a {
 	border-radius: 10px;
 	box-shadow: 5px 5px 5px grey;
 	text-align: center;	
+	opacity: .8;
 
 }
+
+

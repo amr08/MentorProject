@@ -12,10 +12,18 @@ $(document).ready(function(){
 
 	});
 
+
+$("#menu").mouseover(function(){
+	$("#menu").append("<p> Drop Down Menu</p>")
+});
 //////END FRONT END JS///////
 
 
+//clears search box content//
 
+	$(".clearText").on("click", function() {
+		$("#theme-form input").val("");
+	});
 
 
 });
