@@ -3,6 +3,14 @@ body {
 
 }
 
+.hide {
+	display: none;
+}
+
+.show {
+	display:block;
+}
+
 section {
 	background-color:#1b1c1d;
 	height: 600px;
@@ -53,9 +61,7 @@ p {
 
 }
 
-/*#floatLeft:hover {
-	transform: scale(1.1); 
-}*/
+
 
 #headerIcons {
 	float: right;
@@ -90,7 +96,7 @@ a {
 
 }
 
-#page3 {
+#page2 {
 	background: url("http://mirthmarfa.com/wp-content/uploads/2013/02/background.png");
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -111,24 +117,33 @@ a {
 
 #wrapper2 {
 	background-color: white;
-	height: 600px;
+	height: 500px;
 	margin: 0 auto;
 	padding-top: 0px;
 
 }
 
 #menu {
-position:fixed;
+	position:fixed;
 	float: right;
-	margin-right: 60px;
-	padding-top: 40px;
 	top: 20px;
 	right: 20px;
-
+	text-align: center;
+	z-index:1;
 
 }
 
-#page4 {
+	#menu:hover {
+		transform: scale(1.1); 
+
+	}
+
+#dropDown {
+
+	width: 100%;
+}
+
+#page3 {
 
 	background-image: url("http://www.psdgraphics.com/file/nature-background.jpg");
 	background-attachment: fixed;
@@ -137,6 +152,10 @@ position:fixed;
 	padding-top: 200px;
 	text-align: center;
 }
+
+
+
+
 
 /*/////////// API AREA*/
 #media {
