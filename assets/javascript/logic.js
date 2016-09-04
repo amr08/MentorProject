@@ -3,21 +3,19 @@ $(document).ready(function(){
 
 
 ////FRONT END JS////////
-	$(window).scroll(function(){
+$(window).scroll(function(){
 
-		$("#heading").css({"opacity" : 1-(($(this).scrollTop())/300)
-
+	$("#heading").css({"opacity" : 1-(($(this).scrollTop())/300)
 		
-		});
-
-		$("#title").css({"opacity" : 1-(($(this).scrollTop())/300)
-			
-			
-		});
-
-
-
 	});
+
+	$("#title").css({"opacity" : 1-(($(this).scrollTop())/300)
+			
+			
+	});
+
+
+});
 
 
 $(document).on("scroll", function() {
@@ -39,21 +37,54 @@ $(document).on("scroll", function() {
 
 });	
 
-//dropdown
+//Dropdown Nav Menu
 
-$("#dropDown").hide();
+	$("#dropDown").hide();
 
-$("#menu").on("click", function(){
-	$("#dropDown").toggleClass("show");
-});
-//////END FRONT END JS///////
+	$("#menu").on("click", function(){
+
+		$("#dropDown").toggleClass("show");
+	});
+
+//mentor network
+
+	$("form").addClass('hide');
+
+	$("#mentor").on("click", function() {
+
+		$('#mentorModal').modal('show');
+
+	});
+
+	$("#mentee").on("click", function() {
+
+		$('#menteeModal').modal('show');
+
+	});
+
+	$(".cancel").on("click", function() {
+	  	$('.modal').modal('hide');
+	  	$('form').addClass('hide');
+	});
+
+	$(".ok").on("click", function() {
+	  	$('.modal').modal('hide');
+	  	$('form').addClass('show');
+
+	});
+
+	$('.ui.radio.checkbox').checkbox();
 
 
-//clears search box content//
+//clears any box content  -not used yet//
 
 	$(".clearText").on("click", function() {
 		$("#theme-form input").val("");
 	});
+
+
+ //////END FRONT END JS///////
+
 
 
 });

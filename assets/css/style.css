@@ -106,7 +106,7 @@ a {
 
 }
 
-#page3text {
+#page2text {
 	font-size: 50px;
 	text-align: center;
 	padding-top: 150px;
@@ -115,19 +115,19 @@ a {
 }
 
 
-#wrapper2 {
+/*#wrapper2 {
 	background-color: white;
 	height: 500px;
 	margin: 0 auto;
 	padding-top: 0px;
 
-}
+}*/
 
 #menu {
 	position:fixed;
 	float: right;
-	top: 20px;
-	right: 20px;
+	top: 30px;
+	right: 30px;
 	text-align: center;
 	z-index:1;
 
@@ -148,14 +148,16 @@ a {
 	background-image: url("http://www.psdgraphics.com/file/nature-background.jpg");
 	background-attachment: fixed;
 	background-size: cover;
-	height: 600px;
+	min-height: 800px;
 	padding-top: 200px;
 	text-align: center;
+	height: 100%;
 }
 
 
-
-
+#mentor {
+	margin-bottom: 50px;
+}
 
 /*/////////// API AREA*/
 #media {
@@ -168,7 +170,7 @@ a {
 	border-radius: 10px;
 	box-shadow: 5px 5px 5px grey;
 	text-align: center;	
-	opacity: .8;
+	/*opacity: .8;*/
 
 }
 
@@ -183,4 +185,7 @@ a {
 #other {
 
 }
+
+/*Google Maps area*/
+
 
