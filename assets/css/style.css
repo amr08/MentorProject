@@ -1,3 +1,9 @@
+/* For testing
+.border {
+	border: 2px solid red;
+} 
+*/
+
 body {
 	margin: 0 auto;
 
@@ -5,26 +11,34 @@ body {
 
 .hide {
 	display: none;
+
 }
 
 .show {
 	display:block;
+
+}
+
+
+#heading {
+	position: fixed;
+	height: 90px;
+	width: 100%;
+
 }
 
 section {
 	background-color:#1b1c1d;
-	height: 600px;
+	height: 650px;
 	margin: 0 auto;
 	padding-top: 0px;
 	text-align: center;
 
 }
 
-#spaceMaker {
-	margin: 0 auto;
-	text-align: center;
-	height: 200px;
-
+#title {
+	position: relative;
+	top: 240px;
 }
 
 .container h1 {
@@ -36,20 +50,27 @@ section {
 .container h2 {
 	color: white;
 	font-size: 21px;
-
+	
 }
 
-p {
-	color: black;
-	z-index: 1;
-	font-size: 50px;
 
+#page2 {
+
+	background-image: url("http://mirthmarfa.com/wp-content/uploads/2013/02/background.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	padding: 25px;
+	padding-bottom: 80px;
+	
 }
 
-#heading {
-	position: fixed;
-	height: 90px;
-	width: 100%;
+.pageTitleText {
+	font-size: 55px;
+	text-align: center;
+	font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	color: black;	
+	padding-top: 50px;
 
 }
 
@@ -58,9 +79,8 @@ p {
 	float: left;
 	margin-left: 2%;
 	margin-top: 8px;
-
+	
 }
-
 
 
 #headerIcons {
@@ -71,7 +91,6 @@ p {
 }
 
 a p {
-	color: #00CED1;
 	text-align: center;
 	font-size: 20px;
 	text-decoration: none;
@@ -79,49 +98,20 @@ a p {
 
 }
 
-a {
-	text-decoration: none;
-
-}
-
 	a:hover {
-		background: #1b1c1d;
 		text-decoration: none;
+		color: #00CED1;
 	}
 
 .thumbnail {
 	width: 250px;
 	margin: 0 auto;
 	margin-top: 150px;
+	background: #1b1c1d;
+	color: white;
 
 }
 
-#page2 {
-	background: url("http://mirthmarfa.com/wp-content/uploads/2013/02/background.png");
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-attachment: fixed;
-	height: 100%;
-	min-height: 1000px;
-
-}
-
-#page2text {
-	font-size: 50px;
-	text-align: center;
-	padding-top: 150px;
-	font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-
-}
-
-
-/*#wrapper2 {
-	background-color: white;
-	height: 500px;
-	margin: 0 auto;
-	padding-top: 0px;
-
-}*/
 
 #menu {
 	position:fixed;
@@ -139,8 +129,8 @@ a {
 	}
 
 #dropDown {
-
 	width: 100%;
+
 }
 
 #page3 {
@@ -148,28 +138,45 @@ a {
 	background-image: url("http://www.psdgraphics.com/file/nature-background.jpg");
 	background-attachment: fixed;
 	background-size: cover;
-	min-height: 800px;
-	padding-top: 200px;
 	text-align: center;
 	height: 100%;
-}
+	padding: 25px;
 
+}
 
 #mentor {
 	margin-bottom: 50px;
+
 }
+
+/*#page4? {
+	background-color: white;
+	height: 500px;
+	margin: 0 auto;
+	padding: 25px;
+
+}*/
+
+
+
+
 
 /*/////////// API AREA*/
 #media {
 	
 	margin: 0 auto;
-	margin-top: 100px;
 	width: 90%;
-	height:20%;
 	background: ivory;
 	border-radius: 10px;
 	box-shadow: 5px 5px 5px grey;
 	text-align: center;	
+	margin-top: 25px;
+	opacity: .9;
+	height: 100px;  /* just for display while we work
+
+
+
+
 	/*opacity: .8;*/
 
 }

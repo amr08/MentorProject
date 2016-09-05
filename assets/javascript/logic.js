@@ -86,5 +86,19 @@ $(document).on("scroll", function() {
  //////END FRONT END JS///////
 
 
+//Data Storage
+
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCdRBi1Jrb3Tgw3EFQelne-sIuFB9-7XTQ",
+    authDomain: "mentor-network.firebaseapp.com",
+    databaseURL: "https://mentor-network.firebaseio.com",
+    storageBucket: "mentor-network.appspot.com",
+  };
+  firebase.initializeApp(config);
+
+  var database = firebase.database();
+
+  //-----------------------
 
 });
