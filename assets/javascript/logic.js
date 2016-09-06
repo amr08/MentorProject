@@ -22,7 +22,7 @@ $(window).scroll(function(){
 
 $(document).on("scroll", function() {
 
-	if ($(document).scrollTop() > 650){
+	if ($(document).scrollTop() > 600){
 		$("#menu").fadeIn();
 		$("#menu").removeClass("hide");
 		$("#menu").addClass("show");
@@ -39,6 +39,10 @@ $(document).on("scroll", function() {
 
 });	
 
+//about modal click listener
+$("#about").on("click", function(){
+	$('#aboutModal').modal('show');
+});
 
 //Dropdown Nav Menu
 
@@ -104,7 +108,7 @@ $(document).on("scroll", function() {
 
   //-----------------------
 
-  //On click listener to add user data
+//On click listener to add user data
 $("#submit").on("click", function() {
 
 //grabs user input
@@ -113,7 +117,7 @@ $("#submit").on("click", function() {
 	var city = $("#city").val().trim();
 	var state = $("#state").val();
 	var email = $("#email").val().trim();
-	//var affiliation = $("#radio input[name=networkSignUp]:checked").val();
+	var affiliation = $("#radio input[name=networkSignUp]:checked").val();
 
 	var newMember = {
 
@@ -122,7 +126,7 @@ $("#submit").on("click", function() {
 		city: city,
 		state: state,
 		email: email,
-		//affiliation: affiliation,
+		affiliation: affiliation,
 		
 	}
 
@@ -133,7 +137,7 @@ $("#submit").on("click", function() {
 	console.log(newMember.city);
 	console.log(newMember.state);
 	console.log(newMember.email);
-	//console.log(newMember.affiliation);
+	console.log(newMember.affiliation);
 	
  	alert("Member successfully added");
 
@@ -142,14 +146,14 @@ $("#submit").on("click", function() {
 	$("#city").val("");
 	$("#state").val("");
 	$("#email").val("");
-	//$("#radio input[name=networkSignUp]:checked").val("");
+	$("#radio input[name=networkSignUp]:checked").val("");
 
  	return false;
 
 });
 
 
-// //Getting info from firebase
+//Getting info from firebase
 database.ref("NewMember").on("child_added", function(childSnapshot, prevChildKey){
 	
 	var firstName = (childSnapshot.val().firstName);
@@ -164,7 +168,7 @@ database.ref("NewMember").on("child_added", function(childSnapshot, prevChildKey
 	console.log(city);
 	console.log(state);
 	console.log(email);
-	//console.log(affiliation);
+	console.log(affiliation);
 
 //decide where to print out on html
 //add search option? too much?
@@ -172,5 +176,19 @@ database.ref("NewMember").on("child_added", function(childSnapshot, prevChildKey
  });
 
 
+//on click for videos
+$('body').on('click', '#videos', function() {
+		console.log("video click event listener is working");
+
+		if (document.getElementById('media').style.height == '20%') {
+			document.getElementById('media').style.height = '80%';
+			document.getElementById('videoContainer').style.display = 'block'; 
+			console.log("Amazing what you'll find");
+		} else {
+			document.getElementById('media').style.height = '20%';
+			document.getElementById('videoContainer').style.display = 'none'; 
+			console.log("face to face");
+		}
+	});
 
 });
