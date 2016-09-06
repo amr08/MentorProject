@@ -1,16 +1,17 @@
 
 $(document).ready(function(){
 
+
 $.stellar();
 
 ////FRONT END JS////////
 $(window).scroll(function(){
 
-	$("#heading").css({"opacity" : 1-(($(this).scrollTop())/500)
+	$("#heading").css({"opacity" : 1-(($(this).scrollTop())/550)
 		
 	});
 
-	$("#title").css({"opacity" : 1-(($(this).scrollTop())/500)
+	$("#title").css({"opacity" : 1-(($(this).scrollTop())/550)
 			
 			
 	});
@@ -21,7 +22,7 @@ $(window).scroll(function(){
 
 $(document).on("scroll", function() {
 
-	if ($(document).scrollTop() > 600){
+	if ($(document).scrollTop() > 650){
 		$("#menu").fadeIn();
 		$("#menu").removeClass("hide");
 		$("#menu").addClass("show");
@@ -38,8 +39,6 @@ $(document).on("scroll", function() {
 
 });	
 
-	
-	
 
 //Dropdown Nav Menu
 
@@ -52,7 +51,7 @@ $(document).on("scroll", function() {
 
 //mentor network
 
-	$("form").addClass('hide');
+	$("#form").addClass('hide');
 
 	$("#mentor").on("click", function() {
 
@@ -68,12 +67,12 @@ $(document).on("scroll", function() {
 
 	$(".cancel").on("click", function() {
 	  	$('.modal').modal('hide');
-	  	$('form').addClass('hide');
+	  	$('#form').addClass('hide');
 	});
 
 	$(".ok").on("click", function() {
 	  	$('.modal').modal('hide');
-	  	$('form').addClass('show');
+	  	$('#form').addClass('show');
 
 	});
 
@@ -104,5 +103,74 @@ $(document).on("scroll", function() {
   var database = firebase.database();
 
   //-----------------------
+
+  //On click listener to add user data
+$("#submit").on("click", function() {
+
+//grabs user input
+	var firstName = $("#firstName").val().trim();
+	var lastName = $("#lastName").val().trim();
+	var city = $("#city").val().trim();
+	var state = $("#state").val();
+	var email = $("#email").val().trim();
+	//var affiliation = $("#radio input[name=networkSignUp]:checked").val();
+
+	var newMember = {
+
+		firstName: firstName,
+		lastName: lastName,
+		city: city,
+		state: state,
+		email: email,
+		//affiliation: affiliation,
+		
+	}
+
+ 	database.ref("NewMember").push(newMember);
+
+	console.log(newMember.firstName);
+	console.log(newMember.lastName);
+	console.log(newMember.city);
+	console.log(newMember.state);
+	console.log(newMember.email);
+	//console.log(newMember.affiliation);
+	
+ 	alert("Member successfully added");
+
+	$("#firstName").val("");
+	$("#lastName").val("");
+	$("#city").val("");
+	$("#state").val("");
+	$("#email").val("");
+	//$("#radio input[name=networkSignUp]:checked").val("");
+
+ 	return false;
+
+});
+
+
+// //Getting info from firebase
+database.ref("NewMember").on("child_added", function(childSnapshot, prevChildKey){
+	
+	var firstName = (childSnapshot.val().firstName);
+	var lastName = (childSnapshot.val().lastName);
+	var city = (childSnapshot.val().city);
+	var state = (childSnapshot.val().state);
+	var email = (childSnapshot.val().email);
+	var affiliation = (childSnapshot.val().affiliation);
+	
+	console.log(firstName);
+	console.log(lastName);
+	console.log(city);
+	console.log(state);
+	console.log(email);
+	//console.log(affiliation);
+
+//decide where to print out on html
+//add search option? too much?
+
+ });
+
+
 
 });

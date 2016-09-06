@@ -6,6 +6,7 @@
 
 body {
 	margin: 0 auto;
+	background-color:#1b1c1d;
 
 }
 
@@ -29,7 +30,7 @@ body {
 
 section {
 	background-color:#1b1c1d;
-	height: 650px;
+	height: 680px;
 	margin: 0 auto;
 	padding-top: 0px;
 	text-align: center;
@@ -57,11 +58,11 @@ section {
 #page2 {
 
 	background-image: url("http://mirthmarfa.com/wp-content/uploads/2013/02/background.png");
-	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
 	padding: 25px;
 	padding-bottom: 80px;
+	
 	
 }
 
@@ -71,6 +72,8 @@ section {
 	font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 	color: black;	
 	padding-top: 50px;
+	font-weight: bolder;
+
 
 }
 
@@ -104,13 +107,17 @@ a p {
 	}
 
 .thumbnail {
-	width: 250px;
 	margin: 0 auto;
-	margin-top: 150px;
+	margin-top: 100px;
 	background: #1b1c1d;
 	color: white;
-		box-shadow: 0px 0px 20px black;
+	box-shadow: 0px 0px 20px black;
 
+
+}
+a {
+	width: 100%;
+	height: 100%;
 }
 
 
@@ -121,7 +128,6 @@ a p {
 	right: 35px;
 	text-align: center;
 	z-index:1;
-
 
 }
 
@@ -137,11 +143,12 @@ a p {
 
 #page3 {
 
-	background-image: url("http://mirthmarfa.com/wp-content/uploads/2013/02/background.png");
+	background-image: url("http://il5.picdn.net/shutterstock/videos/11667431/thumb/1.jpg");
 	background-attachment: fixed;
+	background-repeat: no-repeat;
 	background-size: cover;
 	text-align: center;
-	height: 100%;
+	height: 150%;
 	padding: 25px;
 
 }
@@ -152,10 +159,13 @@ a p {
 }
 
 #mentorNetwork {
-	position: relative;
-	top: 50px;
 	background-color: #1b1c1d;
 	color: white;
+	border-radius: 10px;
+	float: left;
+	height: 300px;
+	margin-top:150px;
+	padding: 30px;
 	}
 
 #mentorNetwork h3 {
@@ -172,6 +182,7 @@ a p {
 	padding: 25px;
 
 
+
 }
 
 #break {
@@ -183,6 +194,32 @@ a p {
 }
 
 
+#form {
+	float: right;
+	margin-top:150px;
+	margin-right: 80px;
+	font-size: 18px;
+	font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	text-align: left;
+	width: 40%;
+	padding: 25px;
+	border-radius: 10px;
+	background: #1b1c1d;
+	opacity: .8;
+
+}
+
+h4 label{
+	color: white;
+	font-size: 18px;
+	padding: 10px;
+}
+
+.ui.radio.checkbox label{
+	color: white;
+
+}
+
 /*/////////// API AREA*/
 #media {
 	
@@ -192,8 +229,7 @@ a p {
 	box-shadow: 0px 0px 20px black;
 	text-align: center;	
 	margin-top: 50px;
-	height: 100px;  /* just for display while we work*/
-
+	padding: 20px;
 
 }
 

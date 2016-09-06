@@ -13,27 +13,27 @@
 
 	<link rel="stylesheet" href="assets/css/reset.css"></link>
 
-	<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+	<script rel="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
 
-	<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+	<script rel="text/javascript" src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
 
-	<script src="assets/css/Semantic-UI-CSS-master/semantic.js"></script>
-
-
+	<script rel="text/javascript" src="assets/css/Semantic-UI-CSS-master/semantic.js"></script>
 
 
 </head>
 
 <body>
+<div id="top">
+</div>
 	
 	<div id="heading" class="ui inverted segment">
 
 		<button id="floatLeft" class="ui inverted grey button">Home</button>
   		
   			<div id="headerIcons">
-	  			<button class="ui inverted basic teal button space">Get Started</button>
-	  			<button class="ui inverted basic teal button space">Learn Stuff</button>
-	  			<button class="ui inverted basic teal button space">Search Interest</button>
+	  			<a href="#"><button class="ui inverted basic teal button space">Get Started</button></a>
+	  			<a href="#page2"><button  class="ui inverted basic teal button space">Learn</button></a>
+	  			<a href="#page3"><button  class="ui inverted basic teal button space">Connect</button></a>
   			</div>
  
 	</div>
@@ -54,49 +54,67 @@
 
 	<div id="menu" class="hide"><i class="big student icon"></i>
 			<div id="dropDown" class="ui vertical menu">
-				<a class="item">
-				    Get Started
+				<a href="#top" class="item">
+				    Home
 				</a>
 
-				<a class="item">
-				    Learn Stuff
+				<a href="#page2" class="item">
+				    Learn 
 				</a>
 
-				<a class="item">
-				    The Network
+				<a href="#page3" class="item">
+				    Connect
 				</a>
 			</div>	
 	</div>
 
-	<div class="ui text container">
-		<h3 class="pageTitleText"> Title of Page</h3>
-	</div>
 
-	<div class="ui container">
+
+<!-- 	<div class="ui text container">
+		<h3 class="pageTitleText"> Title </h3>
+	</div> -->
+
+	
 		<div class="row">
 			<div class="col-sm-4">
 			    <a href="#" class="thumbnail" id="videos">
-			    	<img src="http://www.garethjmsaunders.co.uk/blueprint/placeholders/gif/extras/icons/256x256.gif" alt="..."><p>Videos</p>
+			    	<img src="http://static.elobservador.com.uy/adjuntos/184/imagenes/000/305/0000305686.jpg" alt="..."><p>Videos</p>
 			    </a>
 			</div>
 
 			<div class="col-sm-4">
 			    <a href="#" class="thumbnail" id="articles">
-			    	<img src="http://www.garethjmsaunders.co.uk/blueprint/placeholders/gif/extras/icons/256x256.gif" alt="..."><p>Articles</p>
+			    	<img src="http://static.elobservador.com.uy/adjuntos/184/imagenes/000/305/0000305686.jpg" alt="..."><p>Articles</p>
 			    </a>
 			</div>
 
 			<div class="col-sm-4">
 			    <a href="#" class="thumbnail" id="other">
-			     	<img src="http://www.garethjmsaunders.co.uk/blueprint/placeholders/gif/extras/icons/256x256.gif" alt="..."><p>Other</p>
+			     	<img src="http://static.elobservador.com.uy/adjuntos/184/imagenes/000/305/0000305686.jpg" alt="..."><p>Other</p>
 			    </a>
 			</div>
-			  	
-		</div>
+	
 
 	</div>
 <!--API Info goes here!!-->
   	<div id="media">
+<h1> test</h1><br>
+<h1> test</h1><br>
+<h1> test</h1><br>
+<h1> test</h1><br>
+<h1> test</h1><br>
+<h1> test</h1><br>
+<h1> test</h1><br>
+<h1> test</h1><br>
+<h1> test</h1><br>
+<h1> test</h1><br>
+<h1> test</h1><br>
+<h1> test</h1><br>
+<h1> test</h1><br>
+<h1> test</h1><br>
+<h1> test</h1><br>
+
+
 
  	</div>
 </div>
@@ -111,7 +129,7 @@
 <div id="page3" data-stellar-background-ratio="0.5">
 	
 
-	<div class="ui text container">
+	<div class="ui fluid container">
 		<div id="mentorNetwork">
 			<br>
 
@@ -168,28 +186,29 @@
 		
 	</div>
 
+<div id="form">
 	<form class="ui form">
 
 		<div class="fields">
 			<div class="field">
-			    <label>First Name</label>
-			    <input type="text" name="first-name" placeholder="First Name">
+			    <h4><label>First Name</label></h4>
+			    <input type="text" id="firstName" name="first-name" placeholder="First Name">
 		 	</div>
 
 			<div class="field">
-			    <label>Last Name</label>
-			    <input type="text" name="last-name" placeholder="Last Name">
+			    <h4><label>Last Name</label></h4>
+			    <input type="text" name="last-name" id="lastName" placeholder="Last Name">
 			</div>
 		</div>
 
 		<div class="six wide field">
-			<label>City</label>
-			 <input type="text" city="city" placeholder="City">
+			 <h4><label>City</label></h4>
+			 <input type="text" city="city" id="city" placeholder="City">
 		</div>
 
 		<div class="six wide field">
-     		<label>State</label>
-	      	<select class="ui fluid dropdown">
+     		 <h4><label>State</label></h4>
+	      	<select id="state" class="ui fluid dropdown">
 	        	<option value="">State</option>
 			    <option value="AL">Alabama</option>
 			    <option value="AK">Alaska</option>
@@ -246,33 +265,34 @@
     	</div>
 
 		<div class="seven wide field">
-		    <label>Email</label>
-		    <input type="text" email="email" placeholder="Email Address">
+		    <h4><label>Email</label></h4>
+		    <input type="text" id="email" email="email" placeholder="Email Address">
 		</div>
 
   		<div class="grouped fields">
 
-    		<label for="networkSignup">Select your affiliation:</label>
+    		 <h4><label id="radio" for="networkSignup">Select your affiliation:</label></h4>
 
    		<div class="field">
       		<div class="ui radio checkbox">
-	        	<input type="radio" name="networkSignup" checked="checked" tabindex="0" class="hidden">
+	        	<input type="radio" name="networkSignUp"  tabindex="0" class="hidden">
 	       		<label>Mentor</label>
       		</div>
     	</div>
 
     	<div class="field">
       		<div class="ui radio checkbox">
-		        <input type="radio" name="networkSignup" tabindex="0" class="hidden">
-		        <label>Mentee</label>
+		        <input type="radio" name="networkSignUp" tabindex="0" class="hidden">
+		         <label>Mentee</label>
       		</div>
     	</div>
 
 
 	  	<button class="ui button cancel">Cancel</button>
-	  	<button class="ui button" type="submit">Submit</button>
+	  	<button class="ui teal button" id="submit" type="submit">Submit</button>
 
 	</form>
+</div>
 
 
 </div>
