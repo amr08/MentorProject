@@ -1,15 +1,16 @@
+
 $(document).ready(function(){
 
-
+$.stellar();
 
 ////FRONT END JS////////
 $(window).scroll(function(){
 
-	$("#heading").css({"opacity" : 1-(($(this).scrollTop())/300)
+	$("#heading").css({"opacity" : 1-(($(this).scrollTop())/500)
 		
 	});
 
-	$("#title").css({"opacity" : 1-(($(this).scrollTop())/300)
+	$("#title").css({"opacity" : 1-(($(this).scrollTop())/500)
 			
 			
 	});
@@ -32,10 +33,13 @@ $(document).on("scroll", function() {
 		$("#menu").removeClass("show");
 		$("#menu").addClass("hide");
 
-	}
-
+	 }
+		
 
 });	
+
+	
+	
 
 //Dropdown Nav Menu
 

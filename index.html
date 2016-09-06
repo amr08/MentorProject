@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="assets/css/Semantic-UI-CSS-master/semantic.css"></link>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 	<link rel="stylesheet" href="assets/css/style.css"></link>
 
 	<link rel="stylesheet" href="assets/css/reset.css"></link>
@@ -17,6 +18,8 @@
 	<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
 
 	<script src="assets/css/Semantic-UI-CSS-master/semantic.js"></script>
+
+
 
 
 </head>
@@ -45,9 +48,9 @@
 </section>
 
 
-	
+
 <!-- //start of page 2 -->
-<div id="page2">
+<div id="page2" data-stellar-background-ratio="0.5">
 
 	<div id="menu" class="hide"><i class="big student icon"></i>
 			<div id="dropDown" class="ui vertical menu">
@@ -60,12 +63,12 @@
 				</a>
 
 				<a class="item">
-				    Find Support
+				    The Network
 				</a>
 			</div>	
 	</div>
 
-	<div class="ui text container border">
+	<div class="ui text container">
 		<h3 class="pageTitleText"> Title of Page</h3>
 	</div>
 
@@ -98,70 +101,72 @@
  	</div>
 </div>
 
-
+<div id="wrapper2">
+<div class="ui text container">
+		<h3 id="break"> The Mentor Project</h3>
+	</div>
+</div>
 
 <!-- start of Page 3 -->
-<div id="page3">
-	<div class="ui text container border">
-		<h3 class="pageTitleText"> Title of Page</h3>
-	</div>
-		<div class="ui text container">
+<div id="page3" data-stellar-background-ratio="0.5">
+	
+
+	<div class="ui text container">
 		<div id="mentorNetwork">
-		<br>
+			<br>
 
-	<h3> Learn more about becoming a mentor or mentee </h3>
+			<h3> Learn more about becoming a mentor or mentee </h3>
 
-		<button id="mentor" class="ui button">Become a Mentor</button>
+				<button id="mentor" class="ui inverted basic teal button">Become a Mentor</button>
 
-		<div class="ui modal" id= "mentorModal">
-  			<i class="close icon"></i>
+					<div class="ui modal" id= "mentorModal">
+  						<i class="close icon"></i>
 
-	  			<div class="header">
-	   				Connect as a Mentor
-	 			</div>
+	  					<div class="header">
+	   					Connect as a Mentor
+	 					</div>
 
-				<div class="image content">
-				    <div class="image"><img src="https://cms-assets.tutsplus.com/uploads/users/23/posts/24695/preview_image/mentor-relationship.png">
-				    </div>
+						<div class="image content">
+				    		<div class="image"><img src="https://cms-assets.tutsplus.com/uploads/users/23/posts/24695/preview_image/mentor-relationship.png">
+				    		</div>
 
-					<div class="description">
-				      Submit your contact information to The Mentor Project to help mentees connect with you.
+							<div class="description">
+				      		Submit your contact information to The Mentor Project to help mentees connect with you.
+							</div>
+			 			</div>
+
+						<div class="actions">
+				    		<div class="ui button cancel">Cancel</div>
+				    		<div class="ui button ok">OK</div>
+						</div>
 					</div>
 
-			 	</div>
 
-				<div class="actions">
-				    <div class="ui button cancel">Cancel</div>
-				    <div class="ui button ok">OK</div>
-				</div>
-		</div>
+			<button id="mentee" class="ui inverted basic teal button">Become a Mentee</button>
 
+					<div class="ui modal" id= "menteeModal">
+			  			<i class="close icon"></i>
+				  				
+				  		<div class="header">
+				   		Connect as a Mentee
+				 		</div>
 
-		<button id="mentee" class="ui button">Become a Mentee</button>
+						<div class="image content">
+							<div class="image"> <img src="https://cms-assets.tutsplus.com/uploads/users/23/posts/24695/preview_image/mentor-relationship.png">
+							</div>
 
-		<div class="ui modal" id= "menteeModal">
-  			<i class="close icon"></i>
-	  				
-	  			<div class="header">
-	   			 	Connect as a Mentee
-	 			</div>
+							<div class="description">
+							Submit your contact information to The Mentor Project to make yourself visible to mentors in your area. 
+							</div>
+						</div>
 
-				<div class="image content">
-				    <div class="image"> <img src="https://cms-assets.tutsplus.com/uploads/users/23/posts/24695/preview_image/mentor-relationship.png">
-				    </div>
-
-					<div class="description">
-				     Submit your contact information to The Mentor Project to make yourself visible to mentors in your area. 
+						<div class="actions">
+							<div class="ui button cancel">Cancel</div>
+							<div class="ui button ok">OK</div>
+						</div>
 					</div>
-				</div>
-
-				<div class="actions">
-					<div class="ui button cancel">Cancel</div>
-				    <div class="ui button ok">OK</div>
-			  	</div>
-		</div>
 		
-
+	</div>
 
 	<form class="ui form">
 
@@ -286,5 +291,6 @@
 
 <!-- Javascript -->
 <script src="assets/javascript/logic.js"></script>
+<script src="assets/javascript/stellar.js-master/jquery.stellar.js"></script>
 
 </html>

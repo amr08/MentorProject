@@ -100,7 +100,7 @@ a p {
 
 	a:hover {
 		text-decoration: none;
-		color: #00CED1;
+		color: #6dffff;
 	}
 
 .thumbnail {
@@ -109,6 +109,7 @@ a p {
 	margin-top: 150px;
 	background: #1b1c1d;
 	color: white;
+		box-shadow: 0px 0px 20px black;
 
 }
 
@@ -116,10 +117,11 @@ a p {
 #menu {
 	position:fixed;
 	float: right;
-	top: 30px;
-	right: 30px;
+	top: 35px;
+	right: 35px;
 	text-align: center;
 	z-index:1;
+
 
 }
 
@@ -135,7 +137,7 @@ a p {
 
 #page3 {
 
-	background-image: url("http://www.psdgraphics.com/file/nature-background.jpg");
+	background-image: url("http://mirthmarfa.com/wp-content/uploads/2013/02/background.png");
 	background-attachment: fixed;
 	background-size: cover;
 	text-align: center;
@@ -149,16 +151,36 @@ a p {
 
 }
 
-/*#page4? {
-	background-color: white;
-	height: 500px;
+#mentorNetwork {
+	position: relative;
+	top: 50px;
+	background-color: #1b1c1d;
+	color: white;
+	}
+
+#mentorNetwork h3 {
+	font-size: 25px;
+	padding: 20px;
+	padding-bottom: 30px;
+
+}
+
+#wrapper2 {
+	 background-color: #1b1c1d;;
+	height: 200px;
 	margin: 0 auto;
 	padding: 25px;
 
-}*/
 
+}
 
-
+#break {
+	font-size: 50px;
+	color: white;
+	text-align: center;
+	position: relative;
+	top: 35px;
+}
 
 
 /*/////////// API AREA*/
@@ -166,18 +188,12 @@ a p {
 	
 	margin: 0 auto;
 	width: 90%;
-	background: ivory;
 	border-radius: 10px;
-	box-shadow: 5px 5px 5px grey;
+	box-shadow: 0px 0px 20px black;
 	text-align: center;	
-	margin-top: 25px;
-	opacity: .9;
-	height: 100px;  /* just for display while we work
+	margin-top: 50px;
+	height: 100px;  /* just for display while we work*/
 
-
-
-
-	/*opacity: .8;*/
 
 }
 
