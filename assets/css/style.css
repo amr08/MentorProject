@@ -256,5 +256,8 @@ h4 label{
 }
 
 /*Google Maps area*/
-
+#map {
+	width: 560px;
+	height: 340px;
+}
 
