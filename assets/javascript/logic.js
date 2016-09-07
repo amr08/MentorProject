@@ -117,7 +117,7 @@ $("#submit").on("click", function() {
 	var city = $("#city").val().trim();
 	var state = $("#state").val();
 	var email = $("#email").val().trim();
-	var affiliation = $("#radio input[name=networkSignUp]:checked").val();
+	var affiliation = $("input[name=networkSignUp]").val();
 
 	var newMember = {
 
@@ -177,18 +177,19 @@ database.ref("NewMember").on("child_added", function(childSnapshot, prevChildKey
 
 
 //on click for videos
-$('body').on('click', '#videos', function() {
-		console.log("video click event listener is working");
+$("#youtube").addClass("hides");
 
-		if (document.getElementById('media').style.height == '20%') {
-			document.getElementById('media').style.height = '80%';
-			document.getElementById('videoContainer').style.display = 'block'; 
-			console.log("Amazing what you'll find");
-		} else {
-			document.getElementById('media').style.height = '20%';
-			document.getElementById('videoContainer').style.display = 'none'; 
-			console.log("face to face");
-		}
+$('#videos').on('click', function() {
+	$("#youtube").removeClass("hides");
+	  $("#youtube").addClass("shows");
 	});
 
 });
+
+  var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      }

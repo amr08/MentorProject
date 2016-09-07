@@ -1,8 +1,8 @@
-/* For testing
+
 .border {
 	border: 2px solid red;
 } 
-*/
+
 
 body {
 	margin: 0 auto;
@@ -19,6 +19,14 @@ body {
 .show {
 	display:block;
 
+}
+
+.hides {
+	visibility: hidden;
+}
+
+.shows {
+	visibility: visible;
 }
 
 #heading {
@@ -186,7 +194,7 @@ a:hover {
 }
 
 #wrapper2 {
-	 background-color: #1b1c1d;;
+	background-color: #1b1c1d;
 	height: 200px;
 	margin: 0 auto;
 	padding: 25px;
@@ -257,4 +265,7 @@ h4 label{
 
 /*Google Maps area*/
 
-
+#map {
+	height: 400px;
+	background-color: white;
+}
