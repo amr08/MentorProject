@@ -22,7 +22,7 @@ $(window).scroll(function(){
 
 $(document).on("scroll", function() {
 
-	if ($(document).scrollTop() > 600){
+	if ($(document).scrollTop() > 650){
 		$("#menu").fadeIn();
 		$("#menu").removeClass("hide");
 		$("#menu").addClass("show");
@@ -34,15 +34,15 @@ $(document).on("scroll", function() {
 		$("#menu").removeClass("show");
 		$("#menu").addClass("hide");
 
-	 }
-		
+	 }	
 
 });	
 
 //about modal click listener
-$("#about").on("click", function(){
-	$('#aboutModal').modal('show');
+	$("#about").on("click", function(){
+		$('#aboutModal').modal('show');
 });
+
 
 //Dropdown Nav Menu
 
@@ -72,6 +72,7 @@ $("#about").on("click", function(){
 	$(".cancel").on("click", function() {
 	  	$('.modal').modal('hide');
 	  	$('#form').addClass('hide');
+
 	});
 
 	$(".ok").on("click", function() {
@@ -87,13 +88,153 @@ $("#about").on("click", function(){
 
 	$(".clearText").on("click", function() {
 		$("#theme-form input").val("");
+
 	});
 
 
- //////END FRONT END JS///////
+
+//global hides
+ $("#youtube").addClass("hides");
+ $("#googleSearch").addClass("hides");
+ $("ul").addClass("hides");
+ $("#userSearch").addClass("hides");
 
 
-//Data Storage
+
+//on click for videos
+$('#videos').on('click', function() {
+	$("#googleSearch").empty();
+	$("ul").addClass("hides");
+	$("ul").removeClass("shows");
+	$("#media").addClass("shows");
+	$("#youtube").toggleClass("shows")
+
+	 return false;
+	
+	});
+
+});
+
+
+
+//ARTICLES API
+
+
+$("#articles").on("click", function(){
+	$("#googleSearch").empty();
+	$("#media").addClass("shows");
+	$("#youtube").addClass("hides");
+	$("#googleSearch").toggleClass("shows");
+	$("ul").toggleClass("shows");
+	
+
+function runApi(searchTerm) {
+
+	var key = "AIzaSyA_v_vzOHBgraP0ojkR8oBuSSXkY3WfbDA"
+        $.get({
+
+            url: 'https://www.googleapis.com/customsearch/v1?key=' + key + '&cx=011631025692118016116:tkj65mrqycg&' + searchTerm,
+            data: {
+                format:'json'
+            },
+
+        }).done(function(response){
+        	console.log(response.items)
+ 		function api (a,b,c,d) {
+ 			var links = a
+            var html = b
+            var siteImages = c
+            var title = d
+
+
+			var divs = $("<div class='items'>")
+			var a = $("<a>")
+			var image = $("<img>")
+
+            image.attr("src", siteImages)
+            divs.attr("href", links)
+
+            divs.append("<br>" + title + "<br>")
+            divs.append(image)
+			divs.append("<h2> " + html + "</h2>")
+			divs.append(links + "<br>")
+			
+			$("#googleSearch").append(divs); 	
+
+ 		}
+
+ 	api(response.items[0].link,response.items[0].htmlSnippet,response.items[0].pagemap.cse_image[0].src, response.items[0].title)        
+ 	api(response.items[1].link,response.items[1].htmlSnippet,response.items[1].pagemap.cse_image[0].src, response.items[1].title) 
+ 	api(response.items[2].link,response.items[2].htmlSnippet,response.items[2].pagemap.cse_image[0].src, response.items[2].title) 
+   	api(response.items[3].link,response.items[3].htmlSnippet,response.items[3].pagemap.cse_image[0].src, response.items[3].title) 
+    api(response.items[4].link,response.items[4].htmlSnippet,response.items[4].pagemap.cse_image[0].src, response.items[4].title) 
+
+
+	});
+
+};
+
+$("#essay").on("click", function () {
+	$("#googleSearch").empty();
+	$("#googleSearch").addClass("shows");
+	runApi('q=writing essays');
+
+	 return false;
+        
+});
+
+$("#financial").on("click", function () {
+	$("#googleSearch").empty();
+	$("#googleSearch").addClass("shows");
+	runApi('q=financial aid');
+
+	 return false;
+        
+});
+
+$("#major").on("click", function () {
+	$("#googleSearch").empty();
+	$("#googleSearch").addClass("shows");
+	runApi('q=selecting a major');
+
+	 return false;
+        
+});
+
+	
+
+
+
+return false;	
+	
+});
+
+
+
+
+// $("#search").on('click', function() {
+// 	console.log("works")
+// 	var userSearch = $("#theme-input").val();
+//     console.log(userSearch)
+
+//     // runApi('q=' + userSearch);
+
+// });
+
+// //// // USER SEARCH
+
+// $("#other").on('click', function() {
+// 	$("#userSearch").toggleClass("shows")
+// 	$("#googleSearch").empty();
+// 	$("#googleSearch").addClass("shows");
+
+//    return false
+// });
+
+
+
+
+//DATA STORAGE
 
   // Initialize Firebase
   var config = {
@@ -126,7 +267,7 @@ $("#submit").on("click", function() {
 		city: city,
 		state: state,
 		email: email,
-		affiliation: affiliation,
+		affiliation: affiliation
 		
 	}
 
@@ -139,7 +280,7 @@ $("#submit").on("click", function() {
 	console.log(newMember.email);
 	console.log(newMember.affiliation);
 	
- 	alert("Member successfully added");
+ 	
 
 	$("#firstName").val("");
 	$("#lastName").val("");
@@ -170,26 +311,52 @@ database.ref("NewMember").on("child_added", function(childSnapshot, prevChildKey
 	console.log(email);
 	console.log(affiliation);
 
-//decide where to print out on html
-//add search option? too much?
+$("#network").append("<br><h3> " + firstName + " " + lastName + "</h3><h3>"
+	+ city + ", " + state + "</h3><h3>"
+	+ email + "</h3>" 
+	+ affiliation + "<br>");
 
  });
 
 
-//on click for videos
-$("#youtube").addClass("hides");
 
-$('#videos').on('click', function() {
-	$("#youtube").removeClass("hides");
-	  $("#youtube").addClass("shows");
-	});
 
-});
 
-  var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
+///MAPS
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 8,
+    center: {lat: 40.731, lng: -73.997}
+  });
+  var geocoder = new google.maps.Geocoder;
+  var infowindow = new google.maps.InfoWindow;
+
+  document.getElementById('submit').addEventListener('click', function() {
+    geocodeLatLng(geocoder, map, infowindow);
+  });
+}
+
+function geocodeLatLng(geocoder, map, infowindow) {
+  var input = document.getElementById('latlng').value;
+  var latlngStr = input.split(',', 2);
+  var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
+  geocoder.geocode({'location': latlng}, function(results, status) {
+    if (status === 'OK') {
+      if (results[1]) {
+        map.setZoom(11);
+        var marker = new google.maps.Marker({
+          position: latlng,
+          map: map
         });
+        infowindow.setContent(results[1].formatted_address);
+        infowindow.open(map, marker);
+      } else {
+        window.alert('No results found');
       }
+    } else {
+      window.alert('Geocoder failed due to: ' + status);
+    }
+  });
+}
+
+
