@@ -123,14 +123,16 @@ $('#videos').on('click', function() {
 $("#articles").on("click", function(){
 	$("#googleSearch").empty();
 	$("#media").addClass("shows");
-	$("#youtube").addClass("hides");
+	$("#media").removeClass("hides");
+	$("#youtube").addClass("hide");
+	$("#youtube").removeClass("shows");
 	$("#googleSearch").toggleClass("shows");
 	$("ul").toggleClass("shows");
 	
 
 function runApi(searchTerm) {
 
-	var key = "AIzaSyA_v_vzOHBgraP0ojkR8oBuSSXkY3WfbDA"
+	var key = "AIzaSyC6YC_Oa1mPaMfdtU05zp09hlnvg0Zssms"
         $.get({
 
             url: 'https://www.googleapis.com/customsearch/v1?key=' + key + '&cx=011631025692118016116:tkj65mrqycg&' + searchTerm,
@@ -156,18 +158,18 @@ function runApi(searchTerm) {
 
             divs.append("<br>" + title + "<br>")
             divs.append(image)
-			divs.append("<h2> " + html + "</h2>")
-			divs.append(links + "<br>")
+			divs.append("<h2>" + html + "</h2>")
+			divs.append("<a href=" + links + ">" + links + "</a><br>")
 			
 			$("#googleSearch").append(divs); 	
 
  		}
 
- 	api(response.items[0].link,response.items[0].htmlSnippet,response.items[0].pagemap.cse_image[0].src, response.items[0].title)        
- 	api(response.items[1].link,response.items[1].htmlSnippet,response.items[1].pagemap.cse_image[0].src, response.items[1].title) 
- 	api(response.items[2].link,response.items[2].htmlSnippet,response.items[2].pagemap.cse_image[0].src, response.items[2].title) 
-   	api(response.items[3].link,response.items[3].htmlSnippet,response.items[3].pagemap.cse_image[0].src, response.items[3].title) 
-    api(response.items[4].link,response.items[4].htmlSnippet,response.items[4].pagemap.cse_image[0].src, response.items[4].title) 
+ 	api(response.items[0].link,response.items[0].htmlSnippet,response.items[0].pagemap.cse_thumbnail[0].src, response.items[0].title)        
+ 	api(response.items[1].link,response.items[1].htmlSnippet,response.items[1].pagemap.cse_thumbnail[0].src, response.items[1].title) 
+ 	api(response.items[2].link,response.items[2].htmlSnippet,response.items[2].pagemap.cse_thumbnail[0].src, response.items[2].title) 
+   	api(response.items[3].link,response.items[3].htmlSnippet,response.items[3].pagemap.cse_thumbnail[0].src, response.items[3].title) 
+    api(response.items[4].link,response.items[4].htmlSnippet,response.items[4].pagemap.cse_thumbnail[0].src, response.items[4].title) 
 
 
 	});
