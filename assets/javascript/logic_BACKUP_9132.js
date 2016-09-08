@@ -177,119 +177,45 @@ database.ref("NewMember").on("child_added", function(childSnapshot, prevChildKey
 
 
 //on click for videos
+<<<<<<< HEAD
+$('body').on('click', '#videos', function() {
+		console.log("video click event listener is working");
 
+		if (document.getElementById('media').style.height == '20%') {
+			document.getElementById('media').style.height = '80%';
+			document.getElementById('videoContainer').style.display = 'block'; 
+			console.log("Amazing what you'll find");
+		} else {
+			document.getElementById('media').style.height = '20%';
+			document.getElementById('videoContainer').style.display = 'none'; 
+			console.log("face to face");
+		}
+});
+
+//GoogleMaps API logic
+
+	var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      }
+=======
 $("#youtube").addClass("hides");
 
 $('#videos').on('click', function() {
 	$("#youtube").removeClass("hides");
 	  $("#youtube").addClass("shows");
 	});
+>>>>>>> afceae834c78425b0c7c11e853770c31d5fc44cd
 
 });
 
-//For handling multiple callbacks from two maps functions on this page
-	function initialize() {
-		initMap();
-		initAutocomplete();
-	}
-
-//Attempting to load geolocation search box in mentor/mentee form
-
-	function initAutocomplete() {
-		autocomplete = new google.maps.places.Autocomplete(
-			(document.getElementById('city')),
-			{types: ['geocode']});
-		autocomplete.addListener('places_changed', function() {
-			var places = searchBox.getPlaces();
-        	if (places.length == 0) {
-        		return;
-        	}
-		});
-	}
-
-//Initial map Andrea got to load with hard-coded location
   var map;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 35.7796, lng: -78.6382},
+          center: {lat: -34.397, lng: 150.644},
           zoom: 8
         });
-
-        //changes I've made
-        // creating the searchbox and linking it to the UI element
-        var input = document.getElementById('pac_input');//originally 'pac-input' insteady of 'city'
-        console.log("input: ",input);
-        var searchBox = new google.maps.places.SearchBox(input);
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
-        // bias the searchbox results toward current map's viewport
-        map.addListener('bounds_changed', function() {
-        	searchBox.setBounds(map.getBounds());
-        });
-
-        var markers = [];
-        // listen for the event fired when the user selects a prediction and retrieve
-        // more details for that place
-        searchBox.addListener('places_changed', function() {
-        	var places = searchBox.getPlaces();
-        	if (places.length == 0) {
-        		return;
-        	}
-
-        	markers.forEach(function(marker) {
-        		marker.setMap(null);
-        	});
-        	markers = [];
-        	// Listen for the event fired when the user selects a prediction and retrieve
-        // more details for that place.
-        searchBox.addListener('places_changed', function() {
-          var places = searchBox.getPlaces();
-
-          if (places.length == 0) {
-            return;
-          }
-
-          // Clear out the old markers.
-          markers.forEach(function(marker) {
-            marker.setMap(null);
-          });
-          markers = [];
-
-          // For each place, get the icon, name and location.
-          var bounds = new google.maps.LatLngBounds();
-          places.forEach(function(place) {
-            if (!place.geometry) {
-              console.log("Returned place contains no geometry");
-              return;
-            }
-            var icon = {
-              url: place.icon,
-              size: new google.maps.Size(71, 71),
-              origin: new google.maps.Point(0, 0),
-              anchor: new google.maps.Point(17, 34),
-              scaledSize: new google.maps.Size(25, 25)
-            };
-
-            // Create a marker for each place.
-            markers.push(new google.maps.Marker({
-              map: map,
-              icon: icon,
-              title: place.name,
-              position: place.geometry.location
-            }));
-
-            if (place.geometry.viewport) {
-              // Only geocodes have viewport.
-              bounds.union(place.geometry.viewport);
-            } else {
-              bounds.extend(place.geometry.location);
-            }
-          });
-          map.fitBounds(bounds);
-        });
-      })
-    }
-
-
-
-
+      }

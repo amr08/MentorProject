@@ -264,17 +264,16 @@ h4 label{
 }
 
 /*Google Maps area*/
+<<<<<<< HEAD
+#map {
+	width: 560px;
+	height: 340px;
+}
 
+=======
 
 #map {
 	height: 400px;
 	background-color: white;
 }
-
-#pac-input {
-	width: 60%;
-}
-
-#city {
-	width: 90%;
-}
+>>>>>>> afceae834c78425b0c7c11e853770c31d5fc44cd
