@@ -119,12 +119,19 @@ $("#submit").on("click", function() {
 	var email = $("#email").val().trim();
 	var affiliation = $("input[name=networkSignUp]").val();
 
+	//passing city into geocoder for lat long data
+	var geocoder = new google.maps.Geocoder();
+
+	var address = geocoder.geocode(city);
+	console.log(address);
+
 	var newMember = {
 
 		firstName: firstName,
 		lastName: lastName,
 		city: city,
 		state: state,
+		address: address,
 		email: email,
 		affiliation: affiliation,
 		
@@ -136,6 +143,7 @@ $("#submit").on("click", function() {
 	console.log(newMember.lastName);
 	console.log(newMember.city);
 	console.log(newMember.state);
+	console.log(newMember.address);
 	console.log(newMember.email);
 	console.log(newMember.affiliation);
 	
@@ -160,6 +168,7 @@ database.ref("NewMember").on("child_added", function(childSnapshot, prevChildKey
 	var lastName = (childSnapshot.val().lastName);
 	var city = (childSnapshot.val().city);
 	var state = (childSnapshot.val().state);
+	var address = (childSnapshot.val().address);
 	var email = (childSnapshot.val().email);
 	var affiliation = (childSnapshot.val().affiliation);
 	
@@ -167,6 +176,7 @@ database.ref("NewMember").on("child_added", function(childSnapshot, prevChildKey
 	console.log(lastName);
 	console.log(city);
 	console.log(state);
+	console.log(address);
 	console.log(email);
 	console.log(affiliation);
 
