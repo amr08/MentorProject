@@ -263,10 +263,15 @@ $("#submit").on("click", function() {
 	var affiliation = $("input[name=networkSignUp]").val();
 
 	//passing city into geocoder for lat long data
+	var geocoder;
+	function codeAddress() {
 	var geocoder = new google.maps.Geocoder();
 
-	var address = geocoder.geocode(city);
+	var address = $("#city").val().trim();
+	geocoder.geocode({'address': address}, function(results) {
+		;
 	console.log(address);
+	}
 
 	var newMember = {
 
