@@ -204,36 +204,40 @@ $("#major").on("click", function () {
 });
 
 	
-
-
-
 return false;	
 	
 });
 
 
+//OTHER SECTION!!!! Jeremy
 
 
-// $("#search").on('click', function() {
-// 	console.log("works")
-// 	var userSearch = $("#theme-input").val();
-//     console.log(userSearch)
-
-//     // runApi('q=' + userSearch);
-
-// });
-
-// //// // USER SEARCH
-
-// $("#other").on('click', function() {
-// 	$("#userSearch").toggleClass("shows")
-// 	$("#googleSearch").empty();
-// 	$("#googleSearch").addClass("shows");
-
-//    return false
-// });
 
 
+//// // USER SEARCH
+
+$("#other").on('click', function() {
+	$("#userSearch").toggleClass("shows")
+	$("#googleSearch").empty();
+	$("#googleSearch").addClass("shows");
+
+   return false
+});
+
+
+$("#search").on('click', function() {
+	console.log("works")
+	var userSearch = $("#college-input").val();
+    console.log(userSearch)
+
+    // runApi('q=' + userSearch);
+
+});
+
+
+
+
+//////
 
 
 //DATA STORAGE
@@ -253,27 +257,30 @@ return false;
 
 //On click listener to add user data
 $("#submit").on("click", function() {
+	console.log("Working")
 
 //grabs user input
 	var firstName = $("#firstName").val().trim();
 	var lastName = $("#lastName").val().trim();
-	var city = $("#city").val().trim();
-	var state = $("#state").val();
+	var address = $("#address").val().trim();
 	var email = $("#email").val().trim();
 	var affiliation = $("input[name=networkSignUp]").val();
 
-	//passing city into geocoder for lat long data
-	var geocoder = new google.maps.Geocoder();
 
-	var address = geocoder.geocode(city);
-	console.log(address);
+   //If you are able to get markers to work you might  need this code below 
+	// //passing city into geocoder for lat long data
+	// var geocoder = new google.maps.Geocoder();
 
+	// var geoCode = geocoder.geocode(address);
+
+
+	// console.log(geoCode);
+	// console.log(address);
+  
 	var newMember = {
 
 		firstName: firstName,
 		lastName: lastName,
-		city: city,
-		state: state,
 		address: address,
 		email: email,
 		affiliation: affiliation
@@ -284,8 +291,6 @@ $("#submit").on("click", function() {
 
 	console.log(newMember.firstName);
 	console.log(newMember.lastName);
-	console.log(newMember.city);
-	console.log(newMember.state);
 	console.log(newMember.address);
 	console.log(newMember.email);
 	console.log(newMember.affiliation);
@@ -294,8 +299,7 @@ $("#submit").on("click", function() {
 
 	$("#firstName").val("");
 	$("#lastName").val("");
-	$("#city").val("");
-	$("#state").val("");
+	$("#address").val("");
 	$("#email").val("");
 	$("#radio input[name=networkSignUp]:checked").val("");
 
@@ -309,25 +313,22 @@ database.ref("NewMember").on("child_added", function(childSnapshot, prevChildKey
 	
 	var firstName = (childSnapshot.val().firstName);
 	var lastName = (childSnapshot.val().lastName);
-	var city = (childSnapshot.val().city);
-	var state = (childSnapshot.val().state);
 	var address = (childSnapshot.val().address);
 	var email = (childSnapshot.val().email);
 	var affiliation = (childSnapshot.val().affiliation);
 	
 	console.log(firstName);
 	console.log(lastName);
-	console.log(city);
-	console.log(state);
 	console.log(address);
 	console.log(email);
 	console.log(affiliation);
 
 $("#network").append("<br><h3> " + firstName + " " + lastName + "</h3><h3>"
-	+ city + ", " + state + "</h3><h3>"
+	+ address + "</h3><h3>"
 	+ email + "</h3>" 
 	+ affiliation + "<br>");
 
+return false;
  });
 
 
@@ -342,7 +343,7 @@ $("#network").append("<br><h3> " + firstName + " " + lastName + "</h3><h3>"
 
 	function initAutocomplete() {
 		autocomplete = new google.maps.places.Autocomplete(
-			(document.getElementById('city')),
+			(document.getElementById('address')),
 			{types: ['geocode']});
 		autocomplete.addListener('places_changed', function() {
 			var places = searchBox.getPlaces();
@@ -389,6 +390,7 @@ $("#network").append("<br><h3> " + firstName + " " + lastName + "</h3><h3>"
         // more details for that place.
         searchBox.addListener('places_changed', function() {
           var places = searchBox.getPlaces();
+          console.log("places: ", places);
 
           if (places.length == 0) {
             return;
