@@ -226,9 +226,7 @@ $("#other").on('click', function() {
 
 
 $("#search").on('click', function() {
-	console.log("works")
 	var userSearch = $("#college-input").val();
-    console.log(userSearch)
 
     // runApi('q=' + userSearch);
 
@@ -266,6 +264,42 @@ $("#submit").on("click", function() {
 	var email = $("#email").val().trim();
 	var affiliation = $("input[name=networkSignUp]").val();
 
+//tarting geocoder
+	var geocoder = new google.maps.Geocoder();
+	var infowindow = new google.maps.InfoWindow();
+
+		codeAddress();
+
+		function codeAddress () {
+			console.log("Geocode Event");
+			geocoder.geocode({ 'address':address }, function (results, status) {
+				console.log(results);
+				if (status == 'OK') {
+					console.log("geocode status")
+					lat = results[0].geometry.location.lat;
+					lng = results[0].geometry.location.lng;
+				} else {
+					alert('Geocode was not successful for the following reason: '+status);
+				}
+			})
+		}
+		console.log("Does latlong maintain appropriate scope", latlong)
+	  
+		var newMapMarker = {
+
+			firstName: firstName,
+			lastName: lastName,
+			address: address,
+			email: email,
+			affiliation: affiliation,
+			lat: lat,
+			lng: lng
+			
+		}
+
+	 	database.ref("newMapMarker").push(newMapMarker);
+
+    
 
    //If you are able to get markers to work you might  need this code below 
 	// //passing city into geocoder for lat long data
@@ -288,12 +322,6 @@ $("#submit").on("click", function() {
 	}
 
  	database.ref("NewMember").push(newMember);
-
-	console.log(newMember.firstName);
-	console.log(newMember.lastName);
-	console.log(newMember.address);
-	console.log(newMember.email);
-	console.log(newMember.affiliation);
 	
  	
 
@@ -304,6 +332,15 @@ $("#submit").on("click", function() {
 	$("#radio input[name=networkSignUp]:checked").val("");
 
  	return false;
+
+ 	//Didn't we have some sort of submission confirmation/close out of the
+ 	//	registration window after someone hit 'Submit' in a previous version?
+ 	//
+ 	//Also, The Network div needs to either grow to fit the size of results or 
+ 	//	have the number of results displayed limited -- ooooor which might be 
+ 	//	cool with the map markers -- have a user choose to display mentors or
+ 	//	mentees, and then filter to display only those results AND to only
+ 	//	populate the map with the corresponding affiliate markers.
 
 });
 
@@ -317,16 +354,13 @@ database.ref("NewMember").on("child_added", function(childSnapshot, prevChildKey
 	var email = (childSnapshot.val().email);
 	var affiliation = (childSnapshot.val().affiliation);
 	
-	console.log(firstName);
-	console.log(lastName);
-	console.log(address);
-	console.log(email);
-	console.log(affiliation);
 
 $("#network").append("<br><h3> " + firstName + " " + lastName + "</h3><h3>"
 	+ address + "</h3><h3>"
 	+ email + "</h3>" 
 	+ affiliation + "<br>");
+
+initMarkers(childSnapshot, prevChildKey);
 
 return false;
  });
@@ -364,7 +398,6 @@ return false;
         //changes I've made
         // creating the searchbox and linking it to the UI element
         var input = document.getElementById('pac_input');//originally 'pac-input' insteady of 'city'
-        console.log("input: ",input);
         var searchBox = new google.maps.places.SearchBox(input);
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
@@ -406,7 +439,6 @@ return false;
           var bounds = new google.maps.LatLngBounds();
           places.forEach(function(place) {
             if (!place.geometry) {
-              console.log("Returned place contains no geometry");
               return;
             }
             var icon = {
@@ -436,5 +468,45 @@ return false;
         });
       })
     }
+
+    function initMarkers(childSnapshot, prevChildKey) {
+
+    	console.log("inside");
+    	console.log(childSnapshot);
+    	console.log(prevChildKey);
+		
+			var firstName = (childSnapshot.val().firstName);
+			var lastName = (childSnapshot.val().lastName);
+			var mapLat = (childSnapshot.val().lat);
+			var mapLng = (childSnapshot.val().lng);
+			var mapMarker = mapLat+", "+mapLng;
+
+			var infowindow = new google.maps.InfoWindow({
+	          content: contentString
+	        });
+
+			var marker = new google.maps.Marker({
+				map: map,
+				position: mapMarker
+			});
+			marker.addListener('click', function() {
+				infowindow.open(map, marker);
+			});
+
+			//console.log("newMapMarker: ",firstName);
+			//console.log(mapMarker);
+
+			return false;
+	}
+
+
+// Working on taking the user-submitted location, passing it through the geocoder,
+//	then pushing that value (wish some other info) into a separate FireBase array.
+//	After a user has become a new member, populate the map with color coded mentor/mentee
+//	markers showing first name, last name and if they're mentor/mentee
+//  Side-thought of if someone has rated/viewed/reviewed/clicked enough stuff on the site
+//	that the mentor/mentee email will display in their map marker info container.
+
+
 
 
