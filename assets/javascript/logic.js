@@ -92,21 +92,6 @@ $(document).on("scroll", function() {
 	});
 
 
-//hide show functions
-
-function youtubeHide() {
-	$("#youtube").addClass("hide");
-	$("#youtube").removeClass("show");
-
-}
-
-function userSearchHide(){
-	$("#userSearch").addClass("hide")
-	$("#userSearch").removeClass("show")
-
-}
-
-
 $("#media").addClass("show")
 //global hides
  $("#youtube").addClass("hide");
