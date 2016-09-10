@@ -317,11 +317,14 @@ database.ref("NewMember").on("child_added", function(childSnapshot, prevChildKey
 	var email = (childSnapshot.val().email);
 	var affiliation = (childSnapshot.val().affiliation);
 
+	var column = $("<div class='column'>")
 
-$("#network").append("<br><h3> " + firstName + " " + lastName + "</h3><h3>"
+	column.append("<br><h3> " + firstName + " " + lastName + "</h3><h3>"
 	+ address + "</h3><h3>"
 	+ email + "</h3>" 
 	+ affiliation + "<br>");
+
+$("#network").append(column)
 
 return false;
  });

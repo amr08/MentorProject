@@ -342,9 +342,19 @@ h4 label{
 
 }
 
-#network {
+.column {
 	float: left;
+	display: inline-block;
+	width: 30%;
+	font-size: 20px;
 
+}
+
+#network {
+	width:500px;
+	float: left;
+	background-color: blue;
+	height: 500px;
 }
 
 .border {
@@ -360,6 +370,11 @@ h4 label{
 #map {
 	height: 400px;
 	background-color: white;
+	width: 500px;
+	float: right;
+	clear: left;
+	position: relative
+	top: 0px;
 }
 
 #pac-input {
