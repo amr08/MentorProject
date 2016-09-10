@@ -92,28 +92,45 @@ $(document).on("scroll", function() {
 	});
 
 
+//hide show functions
 
+function youtubeHide() {
+	$("#youtube").addClass("hide");
+	$("#youtube").removeClass("show");
+
+}
+
+function userSearchHide(){
+	$("#userSearch").addClass("hide")
+	$("#userSearch").removeClass("show")
+
+}
+
+
+$("#media").addClass("show")
 //global hides
- $("#youtube").addClass("hides");
- $("#googleSearch").addClass("hides");
- $("ul").addClass("hides");
- $("#userSearch").addClass("hides");
+ $("#youtube").addClass("hide");
+ $("#googleSearch").addClass("hide");
+ $("ul").addClass("hide");
+ $("#userSearch").addClass("hide");
+
 
 
 
 //on click for videos
 $('#videos').on('click', function() {
 	$("#googleSearch").empty();
-	$("ul").addClass("hides");
-	$("ul").removeClass("shows");
-	$("#media").addClass("shows");
-	$("#youtube").toggleClass("shows")
+	$("#youtube").toggleClass("show")
+	$("#googleSearch").removeClass("show")
+	$("#userSearch").removeClass("show");
+	$("ul").removeClass("show");
+
 
 	 return false;
 	
 	});
 
-});
+
 
 
 
@@ -122,12 +139,9 @@ $('#videos').on('click', function() {
 
 $("#articles").on("click", function(){
 	$("#googleSearch").empty();
-	$("#media").addClass("shows");
-	$("#media").removeClass("hides");
-	$("#youtube").addClass("hide");
-	$("#youtube").removeClass("shows");
-	$("#googleSearch").toggleClass("shows");
-	$("ul").toggleClass("shows");
+	$("ul").toggleClass("show");
+	$("#youtube").removeClass("show")
+	$("#userSearch").removeClass("show")
 	
 
 function runApi(searchTerm) {
@@ -178,7 +192,8 @@ function runApi(searchTerm) {
 
 $("#essay").on("click", function () {
 	$("#googleSearch").empty();
-	$("#googleSearch").addClass("shows");
+	$("ul").addClass("show")
+	$("#googleSearch").addClass("show");
 	runApi('q=writing essays');
 
 	 return false;
@@ -187,7 +202,7 @@ $("#essay").on("click", function () {
 
 $("#financial").on("click", function () {
 	$("#googleSearch").empty();
-	$("#googleSearch").addClass("shows");
+	$("#googleSearch").addClass("show");
 	runApi('q=financial aid');
 
 	 return false;
@@ -196,7 +211,7 @@ $("#financial").on("click", function () {
 
 $("#major").on("click", function () {
 	$("#googleSearch").empty();
-	$("#googleSearch").addClass("shows");
+	$("#googleSearch").addClass("show");
 	runApi('q=selecting a major');
 
 	 return false;
@@ -217,9 +232,16 @@ return false;
 //// // USER SEARCH
 
 $("#other").on('click', function() {
-	$("#userSearch").toggleClass("shows")
 	$("#googleSearch").empty();
-	$("#googleSearch").addClass("shows");
+	$("#userSearch").toggleClass("show")
+	$("#youtube").removeClass("show")
+	$("ul").removeClass("show")
+	// youtubeHide();
+	// $("#googleSearch").addClass("hide")
+	// $("#googleSearch").removeClass("show")
+	// $("ul").addClass("hide");
+	// $("ul").removeClass("show")
+	// $("#googleSearch").addClass("shows");
 
    return false
 });
@@ -275,7 +297,7 @@ $("#submit").on("click", function() {
 
 
 	// console.log(geoCode);
-	// console.log(address);
+	console.log(address);
   
 	var newMember = {
 
@@ -289,13 +311,6 @@ $("#submit").on("click", function() {
 
  	database.ref("NewMember").push(newMember);
 
-	console.log(newMember.firstName);
-	console.log(newMember.lastName);
-	console.log(newMember.address);
-	console.log(newMember.email);
-	console.log(newMember.affiliation);
-	
- 	
 
 	$("#firstName").val("");
 	$("#lastName").val("");
@@ -316,12 +331,7 @@ database.ref("NewMember").on("child_added", function(childSnapshot, prevChildKey
 	var address = (childSnapshot.val().address);
 	var email = (childSnapshot.val().email);
 	var affiliation = (childSnapshot.val().affiliation);
-	
-	console.log(firstName);
-	console.log(lastName);
-	console.log(address);
-	console.log(email);
-	console.log(affiliation);
+
 
 $("#network").append("<br><h3> " + firstName + " " + lastName + "</h3><h3>"
 	+ address + "</h3><h3>"
@@ -331,7 +341,7 @@ $("#network").append("<br><h3> " + firstName + " " + lastName + "</h3><h3>"
 return false;
  });
 
-
+});
 
 //For handling multiple callbacks from two maps functions on this page
 	function initialize() {
@@ -436,5 +446,6 @@ return false;
         });
       })
     }
+
 
 
