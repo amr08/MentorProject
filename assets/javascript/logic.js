@@ -2,46 +2,47 @@
 $(document).ready(function(){
 
 
-$.stellar();
+	$.stellar();
 
 ////FRONT END JS////////
-$(window).scroll(function(){
+	$(window).scroll(function(){
 
-	$("#heading").css({"opacity" : 1-(($(this).scrollTop())/550)
-		
+		$("#heading").css({"opacity" : 1-(($(this).scrollTop())/550)
+			
+		});
+
+		$("#title").css({"opacity" : 1-(($(this).scrollTop())/550)
+				
+				
+		});
+
+
 	});
 
-	$("#title").css({"opacity" : 1-(($(this).scrollTop())/550)
-			
-			
-	});
 
+	$(document).on("scroll", function() {
 
-});
+		if ($(document).scrollTop() > 650){
+			$("#menu").fadeIn();
+			$("#menu").removeClass("hide");
+			$("#menu").addClass("show");
 
+		}
 
-$(document).on("scroll", function() {
+		else {
 
-	if ($(document).scrollTop() > 650){
-		$("#menu").fadeIn();
-		$("#menu").removeClass("hide");
-		$("#menu").addClass("show");
+			$("#menu").removeClass("show");
+			$("#menu").addClass("hide");
 
-	}
+		 }	
 
-	else {
-
-		$("#menu").removeClass("show");
-		$("#menu").addClass("hide");
-
-	 }	
-
-});	
+	});	
 
 //about modal click listener
 	$("#about").on("click", function(){
 		$('#aboutModal').modal('show');
-});
+
+	});
 
 
 //Dropdown Nav Menu
@@ -49,34 +50,36 @@ $(document).on("scroll", function() {
 	$("#dropDown").hide();
 
 	$("#menu").on("click", function(){
-
 		$("#dropDown").toggleClass("show");
+
 	});
 
+
 //mentor network
+
 	$("#showNetwork").on("click", function() {
 		$("#success").addClass("show")
 		$("#success").removeClass("hide")
 		$("#form").addClass("show")
 		$("#form").removeClass("hide")
 		$("form").addClass("hides");
-		console.log("Working")
+
 	});
+
 
 	$("#success a").on("click", function() {
        $("#wrapper3").addClass("show")
+
 	});
 
 	$("#form").addClass('hide');
 
 	$("#mentor").on("click", function() {
-
 		$('#mentorModal').modal('show');
 
 	});
 
 	$("#mentee").on("click", function() {
-
 		$('#menteeModal').modal('show');
 
 	});
@@ -96,16 +99,10 @@ $(document).on("scroll", function() {
 	$('.ui.radio.checkbox').checkbox();
 
 
-//clears any box content  -not used yet//
-
-	$(".clearText").on("click", function() {
-		$("#theme-form input").val("");
-
-	});
-
 
 //global shows for page 2
 	$("#media").addClass("show")
+
 //global hides for page 2
 	$("#youtube").addClass("hide");
 	$("#googleSearch").addClass("hide");
@@ -114,16 +111,16 @@ $(document).on("scroll", function() {
 
 
 //on click for videos
-$('#videos').on('click', function() {
-	$("#googleSearch").empty();
-	$("#youtube").toggleClass("show")
-	$("#googleSearch").removeClass("show")
-	$("#userSearch").removeClass("show");
-	$("ul").removeClass("show");
+	$('#videos').on('click', function() {
+		$("#googleSearch").empty();
+		$("#youtube").toggleClass("show")
+		$("#googleSearch").removeClass("show")
+		$("#userSearch").removeClass("show");
+		$("ul").removeClass("show");
 
 
-	 return false;
-	
+		 return false;
+		
 	});
 
 
@@ -131,89 +128,91 @@ $('#videos').on('click', function() {
 //ARTICLES API
 
 
-$("#articles").on("click", function(){
-	$("#googleSearch").empty();
-	$("ul").toggleClass("show");
-	$("#youtube").removeClass("show")
-	$("#userSearch").removeClass("show")
-	
+	$("#articles").on("click", function(){
+		$("#googleSearch").empty();
+		$("ul").toggleClass("show");
+		$("#youtube").removeClass("show")
+		$("#userSearch").removeClass("show")
+		
 
-function runApi(searchTerm) {
+		function runApi(searchTerm) {
 
-	var key = "AIzaSyC6YC_Oa1mPaMfdtU05zp09hlnvg0Zssms"
-        $.get({
+			var key = "AIzaSyC6YC_Oa1mPaMfdtU05zp09hlnvg0Zssms"
+		        $.get({
 
-            url: 'https://www.googleapis.com/customsearch/v1?key=' + key + '&cx=011631025692118016116:tkj65mrqycg&' + searchTerm,
-            data: {
-                format:'json'
-            },
+		            url: 'https://www.googleapis.com/customsearch/v1?key=' + key + '&cx=011631025692118016116:tkj65mrqycg&' + searchTerm,
+		            data: {
+		                format:'json'
+		            },
 
-        }).done(function(response){
-        	console.log(response.items)
- 		function api (a,b,c,d) {
- 			var links = a
-            var html = b
-            var siteImages = c
-            var title = d
-
-
-			var divs = $("<div class='items'>")
-			var a = $("<a>")
-			var image = $("<img>")
-
-            image.attr("src", siteImages)
-            divs.attr("href", links)
-
-            divs.append("<br>" + title + "<br>")
-            divs.append(image)
-			divs.append("<h2>" + html + "</h2>")
-			divs.append("<a href=" + links + ">" + links + "</a><br>")
-			
-			$("#googleSearch").append(divs); 	
-
- 		}
-
- 	api(response.items[0].link,response.items[0].htmlSnippet,response.items[0].pagemap.cse_thumbnail[0].src, response.items[0].title)        
- 	api(response.items[1].link,response.items[1].htmlSnippet,response.items[1].pagemap.cse_thumbnail[0].src, response.items[1].title) 
- 	api(response.items[2].link,response.items[2].htmlSnippet,response.items[2].pagemap.cse_thumbnail[0].src, response.items[2].title) 
-   	api(response.items[3].link,response.items[3].htmlSnippet,response.items[3].pagemap.cse_thumbnail[0].src, response.items[3].title) 
-    api(response.items[4].link,response.items[4].htmlSnippet,response.items[4].pagemap.cse_thumbnail[0].src, response.items[4].title) 
+		        }).done(function(response){
+		        	console.log(response.items)
+		 		function api (a,b,c,d) {
+		 			var links = a
+		            var html = b
+		            var siteImages = c
+		            var title = d
 
 
+					var divs = $("<div class='items'>")
+					var a = $("<a>")
+					var image = $("<img>")
+
+		            image.attr("src", siteImages)
+		            divs.attr("href", links)
+
+		            divs.append("<br>" + title + "<br>")
+		            divs.append(image)
+					divs.append("<h2>" + html + "</h2>")
+					divs.append("<a href=" + links + ">" + links + "</a><br>")
+					
+					$("#googleSearch").append(divs); 	
+
+		 		}
+
+		 	api(response.items[0].link,response.items[0].htmlSnippet,response.items[0].pagemap.cse_thumbnail[0].src, response.items[0].title)        
+		 	api(response.items[1].link,response.items[1].htmlSnippet,response.items[1].pagemap.cse_thumbnail[0].src, response.items[1].title) 
+		 	api(response.items[2].link,response.items[2].htmlSnippet,response.items[2].pagemap.cse_thumbnail[0].src, response.items[2].title) 
+		   	api(response.items[3].link,response.items[3].htmlSnippet,response.items[3].pagemap.cse_thumbnail[0].src, response.items[3].title) 
+		    api(response.items[4].link,response.items[4].htmlSnippet,response.items[4].pagemap.cse_thumbnail[0].src, response.items[4].title) 
+
+
+			});
+
+		};
+
+//Listeners for page2 images
+
+	$("#essay").on("click", function () {
+		$("#googleSearch").empty();
+		$("ul").addClass("show")
+		$("#googleSearch").addClass("show");
+		runApi('q=writing essays');
+
+		 return false;
+	        
 	});
 
-};
+	$("#financial").on("click", function () {
+		$("#googleSearch").empty();
+		$("#googleSearch").addClass("show");
+		runApi('q=financial aid');
 
-$("#essay").on("click", function () {
-	$("#googleSearch").empty();
-	$("ul").addClass("show")
-	$("#googleSearch").addClass("show");
-	runApi('q=writing essays');
+		 return false;
+	        
+	});
 
-	 return false;
-        
-});
+	$("#major").on("click", function () {
+		$("#googleSearch").empty();
+		$("#googleSearch").addClass("show");
+		runApi('q=selecting a major');
 
-$("#financial").on("click", function () {
-	$("#googleSearch").empty();
-	$("#googleSearch").addClass("show");
-	runApi('q=financial aid');
-
-	 return false;
-        
-});
-
-$("#major").on("click", function () {
-	$("#googleSearch").empty();
-	$("#googleSearch").addClass("show");
-	runApi('q=selecting a major');
-
-	 return false;
-        
-});
+		 return false;
+	        
+	});
 
 	
-return false;	
+	return false;	
 	
 });
 
@@ -225,30 +224,30 @@ return false;
 
 //// // USER SEARCH
 
-$("#other").on('click', function() {
-	$("#googleSearch").empty();
-	$("#userSearch").toggleClass("show")
-	$("#youtube").removeClass("show")
-	$("ul").removeClass("show")
-	// youtubeHide();
-	// $("#googleSearch").addClass("hide")
-	// $("#googleSearch").removeClass("show")
-	// $("ul").addClass("hide");
-	// $("ul").removeClass("show")
-	// $("#googleSearch").addClass("shows");
+	$("#other").on('click', function() {
+		$("#googleSearch").empty();
+		$("#userSearch").toggleClass("show")
+		$("#youtube").removeClass("show")
+		$("ul").removeClass("show")
+		// youtubeHide();
+		// $("#googleSearch").addClass("hide")
+		// $("#googleSearch").removeClass("show")
+		// $("ul").addClass("hide");
+		// $("ul").removeClass("show")
+		// $("#googleSearch").addClass("shows");
 
-   return false
-});
+	   return false
+	});
 
 
-$("#search").on('click', function() {
-	console.log("works")
-	var userSearch = $("#college-input").val();
-    console.log(userSearch)
+	$("#search").on('click', function() {
+		console.log("works")
+		var userSearch = $("#college-input").val();
+	    console.log(userSearch)
 
-    // runApi('q=' + userSearch);
+	    // runApi('q=' + userSearch);
 
-});
+	});
 
 
 
@@ -258,97 +257,97 @@ $("#search").on('click', function() {
 
 //DATA STORAGE
 
-  // Initialize Firebase
-var config = {
-	apiKey: "AIzaSyCdRBi1Jrb3Tgw3EFQelne-sIuFB9-7XTQ",
-    authDomain: "mentor-network.firebaseapp.com",
-    databaseURL: "https://mentor-network.firebaseio.com",
-    storageBucket: "mentor-network.appspot.com",
-};
-  	
-firebase.initializeApp(config);
+// Initialize Firebase
 
-var database = firebase.database();
+	var config = {
+		apiKey: "AIzaSyCdRBi1Jrb3Tgw3EFQelne-sIuFB9-7XTQ",
+	    authDomain: "mentor-network.firebaseapp.com",
+	    databaseURL: "https://mentor-network.firebaseio.com",
+	    storageBucket: "mentor-network.appspot.com",
+	};
+	  	
+	firebase.initializeApp(config);
 
-  //-----------------------
+	var database = firebase.database();
 
-  //global hides for page 3
-$("#success").addClass("hide");
-$("#wrapper3").addClass("hide");
+	  //-----------------------
 
-
-//On click listener to add user data
-$("#submit").on("click", function() {
-	$("#success").removeClass("hide")
-	$("form").addClass("hides")
-
-	console.log("Working")
-
-//grabs user input
-	var firstName = $("#firstName").val().trim();
-	var lastName = $("#lastName").val().trim();
-	var address = $("#address").val().trim();
-	var email = $("#email").val().trim();
-	var affiliation = $("input[name=networkSignUp]").val();
+	  //global hides for page 3
+	$("#success").addClass("hide");
+	$("#wrapper3").addClass("hide");
 
 
-   //If you are able to get markers to work you might  need this code below 
-	// //passing city into geocoder for lat long data
-	// var geocoder = new google.maps.Geocoder();
-
-	// var geoCode = geocoder.geocode(address);
-
-
-	// console.log(geoCode);
-	console.log(address);
-  
-	var newMember = {
-
-		firstName: firstName,
-		lastName: lastName,
-		address: address,
-		email: email,
-		affiliation: affiliation
-			
-		}
-
- 	database.ref("NewMember").push(newMember);
+	//On click listener to add user data
+	$("#submit").on("click", function() {
+		$("#success").removeClass("hide")
+		$("form").addClass("hides")
 
 
-	$("#firstName").val("");
-	$("#lastName").val("");
-	$("#address").val("");
-	$("#email").val("");
-	$("#radio input[name=networkSignUp]:checked").val("");
+	//grabs user input
+		var firstName = $("#firstName").val().trim();
+		var lastName = $("#lastName").val().trim();
+		var address = $("#address").val().trim();
+		var email = $("#email").val().trim();
+		var affiliation = $("input[name=networkSignUp]").val();
 
- 	return false;
 
-});
+	   //If you are able to get markers to work you might  need this code below 
+		// //passing city into geocoder for lat long data
+		// var geocoder = new google.maps.Geocoder();
+
+		// var geoCode = geocoder.geocode(address);
+
+
+		// console.log(geoCode);
+		console.log(address);
+	  
+		var newMember = {
+
+			firstName: firstName,
+			lastName: lastName,
+			address: address,
+			email: email,
+			affiliation: affiliation
+				
+			}
+
+	 	database.ref("NewMember").push(newMember);
+
+
+		$("#firstName").val("");
+		$("#lastName").val("");
+		$("#address").val("");
+		$("#email").val("");
+		$("#radio input[name=networkSignUp]:checked").val("");
+
+	 	return false;
+
+	});
 
 
 //Getting info from firebase
-database.ref("NewMember").on("child_added", function(childSnapshot, prevChildKey){
-	
-	var firstName = (childSnapshot.val().firstName);
-	var lastName = (childSnapshot.val().lastName);
-	var address = (childSnapshot.val().address);
-	var email = (childSnapshot.val().email);
-	var affiliation = (childSnapshot.val().affiliation);
+	database.ref("NewMember").on("child_added", function(childSnapshot, prevChildKey){
+		
+		var firstName = (childSnapshot.val().firstName);
+		var lastName = (childSnapshot.val().lastName);
+		var address = (childSnapshot.val().address);
+		var email = (childSnapshot.val().email);
+		var affiliation = (childSnapshot.val().affiliation);
 
-	var column = $("<div class='column'>")
+		var column = $("<div class='column'>")
 
-	column.append("<br><h3> " + firstName + " " + lastName + "</h3><h3>"
-	+ address + "</h3><h3>"
-	+ email + "</h3>" 
-	+ affiliation + "<br>");
+		column.append("<br><h3> " + firstName + " " + lastName + "</h3><h3>"
+		+ address + "</h3><h3>"
+		+ email + "</h3>" 
+		+ affiliation + "<br>");
 
-	$("#network").append(column)
+		$("#network").append(column)
 
-	return false;
+		return false;
 
- 	});
+	 	});
 
-});
+	});
 
 
 

@@ -1,9 +1,5 @@
 
 
-.testBorder {
-border: 4px solid red;
-}
-
 body {
 	margin: 0 auto;
 	letter-spacing: 1.5px;
@@ -11,12 +7,9 @@ body {
     background-attachment: fixed;
     background-size: 2000px;
 
-
-
 }
 
-
-
+/*general hiding and showing*/
 .hide {
 	display: none;
 
@@ -34,6 +27,8 @@ body {
 .shows {
 	visibility: visible;
 }
+
+/****************/
 
 #heading {
 	position: fixed;
@@ -54,6 +49,7 @@ section {
 #title {
 	position: relative;
 	top: 240px;
+
 }
 
 .container h1 {
@@ -73,6 +69,7 @@ section {
 	top: 25px;
 
 }
+
 #page2 {
 
 	background-image: url("http://mirthmarfa.com/wp-content/uploads/2013/02/background.png");
@@ -81,7 +78,6 @@ section {
 	background-attachment: fixed;
 	padding: 25px;
 	min-height: 1500px;
-	
 		
 }
 
@@ -102,14 +98,15 @@ section {
 	width: 70%;
 	margin-left: 20px;
 	text-shadow: 5px 5px 20px grey;
+
 }
+
 #floatLeft {
 	float: left;
 	margin-left: 2%;
 	margin-top: 8px;
 	
 }
-
 
 #headerIcons {
 	float: right;
@@ -123,7 +120,6 @@ a p {
 	font-size: 20px;
 	text-decoration: none;
 	font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-	
 
 }
 
@@ -136,12 +132,11 @@ a p {
 
 }
 
+	.thumbnail:hover {
+		color: #6dffff;;
+		text-decoration: none;
 
-
-.thumbnail:hover {
-	color: #6dffff;;
-	text-decoration: none;
-}
+	}
 
 a {
 	width: 100%;
@@ -191,8 +186,6 @@ a {
 	text-align: center;
 	min-height: 1250px;
 	
-
-
 }
 
 #mentor {
@@ -217,14 +210,12 @@ a {
 	top: 500px;
 	left: 80px;
 
-
 }
 
 #mentorNetwork h3 {
 	font-size: 25px;
 	padding: 20px;
 	padding-bottom: 30px;
-
 
 }
 
@@ -247,7 +238,6 @@ a {
 
 }
 
-
 #form {
 	float: right;
 	margin-top:500px;
@@ -260,7 +250,6 @@ a {
 	border-radius: 10px;
 	background: #1b1c1d;
 	opacity: .8;
-
 
 }
 
@@ -276,6 +265,11 @@ h4 label{
 
 }
 
+
+
+
+
+
 /*/////////// API AREA*/
 
 
@@ -286,10 +280,11 @@ h4 label{
 	box-shadow: 0px 0px 20px black;
 	text-align: center;	
 	margin-top: 100px;
-	min-height: 700px;
+	min-height: 600px;
 	background-image: url("https://a2ua.com/corkboard/corkboard-004.jpg");
 	background-size: cover;
 	padding: 30px;
+	color: white;
 
 }
 
@@ -298,22 +293,15 @@ h4 label{
 	width: 80%
 	background: white;
 
-
 }
 
 .whiteBorder {
 	box-shadow: 0px 0px 20px black;
 	
-
 }
 
 #googleSearch {
-
-
 	margin-top: 50px;
-
-	
-
 
 }
 
@@ -325,9 +313,9 @@ h4 label{
 	font-size: 20px;
 	width: 70%;
 	margin-bottom: 20px;
+	color: black;
 
 }
-
 
 .vidTitle {
 	font-size: 18px;
@@ -335,10 +323,12 @@ h4 label{
 	font-weight: bold;
 	margin-top: 20px
 	margin-bottom: 20px;
+
 }
 
 .twoButtons {
 	margin: 20px;
+
 }
 
 #wrapper3 {
@@ -363,10 +353,12 @@ h4 label{
 	margin-left: 50px;
 	height: 100%;
 	box-shadow: 0px 0px 20px black;
+
 }
 
 #showNetwork {
 		padding: 20px;
+
 }
 
 #success {
@@ -377,15 +369,14 @@ h4 label{
 	position: relative;
 	text-align: center;
 
-
-
 }
 
 #success button{
-	
 	font-size: 18px;
 	margin: 20px;
+
 }
+
 .border {
 	border-bottom: 1px solid grey;
 	margin-bottom: 20px;
@@ -402,13 +393,258 @@ h4 label{
 	float: right;
 	margin-right: 50px;
 
-	
 }
 
 #pac-input {
 	width: 200px;
+
 }
 
 #city {
 	width: 200px;
+	
 }
+
+
+/*regular screen*/
+	@media screen and (max-width: 980px) {
+		
+
+}
+
+		/*aside {
+			margin-right: 18%;
+		}
+
+		article {
+			width: 400px;
+
+		}
+
+		article img {
+			width: 100%;
+			margin-bottom: 20px;
+
+		}
+
+		.photo {
+			width: 350px;
+			height: 300px;
+		}
+
+			#box1 {
+				width: 350px;
+				margin-top: 235px;
+			}
+
+			#box2 {
+				margin-top: 565px;
+				margin-left: 0;
+				width: 350px;
+			}
+        
+       		#box3 { 
+        		margin-top: 900px; 
+        		width: 350px;
+   	   		}
+	
+        	#box4 {
+        		margin-left: 0px;
+        		margin-top: 1230px;
+        		width: 350px;
+       		}
+
+			#box5 {
+				margin-top: 1555px;
+				width: 350px;
+				
+			}
+		}
+
+
+/*tablet*/
+/*	@media screen and (max-width: 768px) {
+
+
+		.wrapper {
+			margin: 0px;
+			max-width: 768px;
+
+			}
+		
+		header {
+			position: static;
+			width: 100%;
+			height: 96px;
+
+		}
+
+		header h1 {
+			margin-left: 2%;
+
+		}
+
+		header ul {	
+			margin-right: 2%;
+
+		}
+
+		article {
+			width: 98%;
+			margin-left: 9px;
+			margin-top: -15%;
+		
+		}
+
+		article img {
+			width: 50%;
+
+		}
+
+		aside {
+			float: left;
+			border: 2px solid black;
+			margin-bottom: 15%;
+			margin-top: -8%;
+			margin-left: 1%;
+			width: 98%;
+
+		}
+
+		aside ul {
+			text-align: left;
+
+		}
+
+		aside h2 {
+			text-align: left;
+	
+		}
+
+		.photo {
+			height: 250px;
+			width: 300px;
+			margin: 20px;
+
+		}
+
+			#box1 {
+				margin-top: 190px;
+				margin-left: 20px;
+				width: 300px;
+			}
+
+			#box2 {
+				margin-top: 190px;
+				margin-left: 360px;
+				width: 300px;
+
+			}
+
+			#box3 {
+				margin-left: 20px;
+				margin-top: 485px;
+				width: 300px;
+
+			}
+
+			#box4 {
+	 			margin-left:360px;
+	 			margin-top: 485px;
+	 			width: 300px;
+
+			}
+
+			#box5 {
+	 			margin-left:20px;
+	 			margin-top: 775px;
+	 			width: 300px;
+
+			}
+
+		
+		}
+
+/*phone in landscape*/
+	/*@media screen and (max-width: 640px) {*/
+
+/*		header {
+			position: static;
+			margin-left: -2%;
+
+		}
+
+		header h1 {
+			width: 100%;
+
+		}
+
+		header ul{
+			margin-top: 0;
+			width: 100%;
+
+		}
+
+		header li {
+			padding-left: 10%;
+			padding-right: 13.3%;
+			text-align: center;
+			
+		}
+		
+		.wrapper {
+			padding: 0px;
+			width: 640px;
+
+		}
+
+		article {
+			margin-top: 0%;
+
+		}
+
+		.photo {
+			width: 500px;
+			height: 400px;
+
+		}
+
+			#box1 {
+				width: 500px;
+				margin-top: 340px;
+				margin-left: 20px;
+
+			}
+		
+			#box2 {
+				width: 500px;
+				margin-top: 790px;
+				margin-left: 20px;
+
+			}
+
+			#box3 {
+				width: 500px;
+				margin-top: 1230px;
+				margin-left: 20px;
+
+			}
+
+			#box4 {
+				width:500px;
+				margin-left: 20px;
+				margin-top: 1665px;
+				
+			}
+
+			#box5 {
+				width: 500px;
+				margin-left:20px;
+				margin-top: 2110px;
+
+			}*/
+*/
+		}
+		*/
+
+
