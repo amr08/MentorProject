@@ -92,28 +92,30 @@ $(document).on("scroll", function() {
 	});
 
 
-
+$("#media").addClass("show")
 //global hides
- $("#youtube").addClass("hides");
- $("#googleSearch").addClass("hides");
- $("ul").addClass("hides");
- $("#userSearch").addClass("hides");
+ $("#youtube").addClass("hide");
+ $("#googleSearch").addClass("hide");
+ $("ul").addClass("hide");
+ $("#userSearch").addClass("hide");
+
 
 
 
 //on click for videos
 $('#videos').on('click', function() {
 	$("#googleSearch").empty();
-	$("ul").addClass("hides");
-	$("ul").removeClass("shows");
-	$("#media").addClass("shows");
-	$("#youtube").toggleClass("shows")
+	$("#youtube").toggleClass("show")
+	$("#googleSearch").removeClass("show")
+	$("#userSearch").removeClass("show");
+	$("ul").removeClass("show");
+
 
 	 return false;
 	
 	});
 
-});
+
 
 
 
@@ -122,12 +124,9 @@ $('#videos').on('click', function() {
 
 $("#articles").on("click", function(){
 	$("#googleSearch").empty();
-	$("#media").addClass("shows");
-	$("#media").removeClass("hides");
-	$("#youtube").addClass("hide");
-	$("#youtube").removeClass("shows");
-	$("#googleSearch").toggleClass("shows");
-	$("ul").toggleClass("shows");
+	$("ul").toggleClass("show");
+	$("#youtube").removeClass("show")
+	$("#userSearch").removeClass("show")
 	
 
 function runApi(searchTerm) {
@@ -178,7 +177,8 @@ function runApi(searchTerm) {
 
 $("#essay").on("click", function () {
 	$("#googleSearch").empty();
-	$("#googleSearch").addClass("shows");
+	$("ul").addClass("show")
+	$("#googleSearch").addClass("show");
 	runApi('q=writing essays');
 
 	 return false;
@@ -187,7 +187,7 @@ $("#essay").on("click", function () {
 
 $("#financial").on("click", function () {
 	$("#googleSearch").empty();
-	$("#googleSearch").addClass("shows");
+	$("#googleSearch").addClass("show");
 	runApi('q=financial aid');
 
 	 return false;
@@ -196,7 +196,7 @@ $("#financial").on("click", function () {
 
 $("#major").on("click", function () {
 	$("#googleSearch").empty();
-	$("#googleSearch").addClass("shows");
+	$("#googleSearch").addClass("show");
 	runApi('q=selecting a major');
 
 	 return false;
@@ -212,14 +212,21 @@ return false;
 //OTHER SECTION!!!! Jeremy
 
 
-
+//API Key =1xt9fCjyr3ps1WvOpqEXKMmExAPGx21sqAZJAfGh
 
 //// // USER SEARCH
 
 $("#other").on('click', function() {
-	$("#userSearch").toggleClass("shows")
 	$("#googleSearch").empty();
-	$("#googleSearch").addClass("shows");
+	$("#userSearch").toggleClass("show")
+	$("#youtube").removeClass("show")
+	$("ul").removeClass("show")
+	// youtubeHide();
+	// $("#googleSearch").addClass("hide")
+	// $("#googleSearch").removeClass("show")
+	// $("ul").addClass("hide");
+	// $("ul").removeClass("show")
+	// $("#googleSearch").addClass("shows");
 
    return false
 });
@@ -255,7 +262,6 @@ $("#search").on('click', function() {
 
 //On click listener to add user data
 $("#submit").on("click", function() {
-	console.log("Working")
 
 //grabs user input
 	var firstName = $("#firstName").val().trim();
@@ -267,23 +273,30 @@ $("#submit").on("click", function() {
 //tarting geocoder
 	var geocoder = new google.maps.Geocoder();
 	var infowindow = new google.maps.InfoWindow();
-
+	var loc = [];
+	//var latlng = "default";
+		console.log(address);
 		codeAddress();
 
 		function codeAddress () {
-			console.log("Geocode Event");
-			geocoder.geocode({ 'address':address }, function (results, status) {
+			geocoder.geocode( { 'address': address}, function(results, status) {
 				console.log(results);
-				if (status == 'OK') {
-					console.log("geocode status")
+				if (status == google.maps.GeocoderStatus.OK) {
+					loc[0] = results[0].geometry.location.lat();
+        			loc[1] = results[0].geometry.location.lng();
+					console.log(loc);
+				/*	
 					lat = results[0].geometry.location.lat;
 					lng = results[0].geometry.location.lng;
+					latlng = lat+" ,"+lng;
+					console.log(results[0].geometry.location.lat);
+				*/
 				} else {
 					alert('Geocode was not successful for the following reason: '+status);
 				}
-			})
-		}
-		console.log("Does latlong maintain appropriate scope", latlong)
+			});
+		};
+		console.log("Does loc maintain appropriate scope: ", loc);
 	  
 		var newMapMarker = {
 
@@ -292,8 +305,7 @@ $("#submit").on("click", function() {
 			address: address,
 			email: email,
 			affiliation: affiliation,
-			lat: lat,
-			lng: lng
+			loc: loc
 			
 		}
 
@@ -309,7 +321,6 @@ $("#submit").on("click", function() {
 
 
 	// console.log(geoCode);
-	// console.log(address);
   
 	var newMember = {
 
@@ -322,8 +333,6 @@ $("#submit").on("click", function() {
 	}
 
  	database.ref("NewMember").push(newMember);
-	
- 	
 
 	$("#firstName").val("");
 	$("#lastName").val("");
@@ -353,19 +362,22 @@ database.ref("NewMember").on("child_added", function(childSnapshot, prevChildKey
 	var address = (childSnapshot.val().address);
 	var email = (childSnapshot.val().email);
 	var affiliation = (childSnapshot.val().affiliation);
-	
 
-$("#network").append("<br><h3> " + firstName + " " + lastName + "</h3><h3>"
+	var column = $("<div class='column'>")
+
+	column.append("<br><h3> " + firstName + " " + lastName + "</h3><h3>"
 	+ address + "</h3><h3>"
 	+ email + "</h3>" 
 	+ affiliation + "<br>");
 
-initMarkers(childSnapshot, prevChildKey);
+	$("#network").append(column)
 
-return false;
- });
+	initMarkers(childSnapshot, prevChildKey);
+	
+	return false;
+	 });
 
-
+});
 
 //For handling multiple callbacks from two maps functions on this page
 	function initialize() {
@@ -506,6 +518,7 @@ return false;
 //	markers showing first name, last name and if they're mentor/mentee
 //  Side-thought of if someone has rated/viewed/reviewed/clicked enough stuff on the site
 //	that the mentor/mentee email will display in their map marker info container.
+
 
 
 

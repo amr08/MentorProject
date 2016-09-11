@@ -23,20 +23,21 @@
 </head>
 
 <body>
+
 <div id="top">
 </div>
 	
-	<div id="heading" class="ui inverted segment">
+		<div id="heading" class="ui inverted segment">
 
-		<button id="floatLeft" class="ui inverted grey button">Home</button>
-  		
-  			<div id="headerIcons">
-	  			<a href="#"><button class="ui inverted basic teal button space">Get Started</button></a>
-	  			<a href="#page2"><button  class="ui inverted basic teal button space">Learn</button></a>
-	  			<a href="#page3"><button  class="ui inverted basic teal button space">Connect</button></a>
-  			</div>
- 
-	</div>
+			<button id="floatLeft" class="ui inverted grey button">Home</button>
+	  		
+	  			<div id="headerIcons">
+		  			<a href="#"><button class="ui inverted basic teal button space">Get Started</button></a>
+		  			<a href="#page2"><button  class="ui inverted basic teal button space">Learn</button></a>
+		  			<a href="#page3"><button  class="ui inverted basic teal button space">Connect</button></a>
+	  			</div>
+	 
+		</div>
 
 <section>
 	
@@ -64,7 +65,7 @@
 						<div class="actions">
 							<div class="ui teal button ok">Cool</div>
 						</div>
-			</div>
+				</div>
 		
 		</div>
 	
@@ -93,7 +94,7 @@
 
 
 
-	<div class="ui text container">
+	<div class="ui fluid container">
 		<h3 class="page2Title border"> Resource Board </h3>
 	</div>
 
@@ -124,6 +125,16 @@
 <!--API Info goes here!!-->
 
   	<div id="media">
+				<ul>
+					<li class="ui teal button" id="essay">College Essays</li>
+					<li class="ui teal button" id="financial">Financial Aid</li>
+					<li class="ui teal button" id="major">Picking a Major</li>
+				</ul>
+
+			<div id="googleSearch">
+			</div>
+
+
 			<div id="userSearch">
 				<label id= "text" for="college-input"> Search </label>
 
@@ -131,14 +142,10 @@
 
 				<input id="search" type="submit" value = "Submit"> 
 			</div>
-  				<ul>
-					<li class="ui teal button" id="essay">College Essays</li>
-					<li class="ui teal button" id="financial">Financial Aid</li>
-					<li class="ui teal button" id="major">Picking a Major</li>
-				</ul>
+  				
 
   			<div id="youtube">
-  				<div class="row border">
+  				<div class="row">
   					<div class ="col-sm-6">
 
   						<h3 class="vidTitle">What you can do now to prepare for college!</h3>
@@ -156,7 +163,7 @@
 				      
 				    </div>
 				 	
-				 	<div class ="col-sm-6">
+				 	<div class ="col-sm-6 whiteBorder">
 
 				 		<h3 class="vidTitle">How to Apply and Prepare for College!</h3>
 
@@ -175,7 +182,7 @@
 				</div>
 
 				<div class="row">
-					<div class ="col-sm-6">
+					<div class ="col-sm-6 whiteBorder">
 
 						<h3 class="vidTitle">How to write your college application essay</h3>
 
@@ -210,28 +217,23 @@
 				    </div>
 				</div>
 			</div>
-			
-				
-			<div id="googleSearch">
-			</div>
 	
-
+<!--   closes media div -->
 	</div>
+
+<!--closes page 2-->
 </div>
-
-<div id="wrapper2">
-	<div class="ui text container">
-		<h3 id="break"> The Mentor Project</h3>
-	</div>
-</div>
-
-
-
 
 
 
 <!-- start of Page 3 -->
 <div id="page3" data-stellar-background-ratio="0.5">
+
+	<div id="wrapper2">
+		<div class="ui text container">
+			<h1 id="break"> The Mentor Project</h1>
+		</div>
+	</div>
 	
 
 	<div class="ui fluid container">
@@ -288,92 +290,85 @@
 							<div class="ui button ok">OK</div>
 						</div>
 					</div>
-		
-	</div>
-	</div>
 
-<div id="form">
-	<form class="ui form">
+<!--closes mentor network div-->
+		</div>
+	
 
-		<div class="fields">
-			<div class="field">
-			    <h4><label>First Name</label></h4>
-			    <input type="text" id="firstName" name="first-name" placeholder="First Name">
-		 	</div>
+			<div id="form">
+				<form class="ui form ">
 
-			<div class="field">
-			    <h4><label>Last Name</label></h4>
-			    <input type="text" name="last-name" id="lastName" placeholder="Last Name">
+					<div class="fields">
+						<div class="field">
+						    <h4><label>First Name</label></h4>
+						    <input type="text" id="firstName" name="first-name" placeholder="First Name">
+					 	</div>
+
+						<div class="field">
+						    <h4><label>Last Name</label></h4>
+						    <input type="text" name="last-name" id="lastName" placeholder="Last Name">
+						</div>
+					</div>
+
+					<div class="ten wide field">
+						 <h4><label>City, State</label></h4>
+						 <input id="address" type="text" address="address" placeholder="Address">
+					</div>
+
+					<div class="ten wide field">
+					    <h4><label>Email</label></h4>
+					    <input type="text" id="email" email="email" placeholder="Email Address">
+					</div>
+
+			  		<div class="grouped fields">
+
+			    		 <h4><label id="radio" for="networkSignup">Select your affiliation:</label></h4>
+
+			   		<div class="field">
+			      		<div class="ui radio checkbox">
+				        	<input type="radio" name="networkSignUp" value="mentor" tabindex="0" class="hidden">
+				       		<label>Mentor</label>
+			      		</div>
+			    	</div>
+
+			    	<div class="field">
+			      		<div class="ui radio checkbox">
+					        <input type="radio" name="networkSignUp" tabindex="0" value="mentee" class="hidden">
+					         <label>Mentee</label>
+			      		</div>
+			    	</div>
+
+
+				  	<button class="ui button cancel">Cancel</button>
+				  	<button class="ui teal button" id="submit" type="submit">Submit</button>
+
+				</form>
 			</div>
-		</div>
-
-		<div class="six wide field">
-			 <h4><label>Address</label></h4>
-			 <input id="address" type="text" address="address" placeholder="Address">
-		</div>
-
-		<div class="seven wide field">
-		    <h4><label>Email</label></h4>
-		    <input type="text" id="email" email="email" placeholder="Email Address">
-		</div>
-
-  		<div class="grouped fields">
-
-    		 <h4><label id="radio" for="networkSignup">Select your affiliation:</label></h4>
-
-   		<div class="field">
-      		<div class="ui radio checkbox">
-	        	<input type="radio" name="networkSignUp" value="mentor" tabindex="0" class="hidden">
-	       		<label>Mentor</label>
-      		</div>
-    	</div>
-
-    	<div class="field">
-      		<div class="ui radio checkbox">
-		        <input type="radio" name="networkSignUp" tabindex="0" value="mentee" class="hidden">
-		         <label>Mentee</label>
-      		</div>
-    	</div>
 
 
-	  	<button class="ui button cancel">Cancel</button>
-	  	<button class="ui teal button" id="submit" type="submit">Submit</button>
-
-	</form>
-</div>
-
- 
-</div>
-
-</div>
+ 	<!--closes fluid container-->
+ 	</div>
+ </div>
 <!-- end of page 3 -->
 
+
 </div>
 
-<div id="wrapper3">
-	<div class="ui text container">
-		<h3 class="page2Title border"> The Network</h3>
-			<div id="network">
-			</div>
+
+	<div id="wrapper3">
+		
+			<h3 class="page2Title border"> The Network</h3>
+				<div class= "container" id="network">
+				</div>
+		
+		
+				<input id="pac_input" class="controls" type="text" placeholder="Search Box">
+
+				<div id="map" class="border">
+				</div>
+
+
 	</div>
-</div>
-
-
-
-
-
-
-
-
-
-<input id="pac_input" class="controls" type="text" placeholder="Search Box">
-
- <div id="map" class="border">
- </div>
-    
-  
-
-
 
 
 </body>
