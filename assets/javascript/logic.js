@@ -54,6 +54,18 @@ $(document).on("scroll", function() {
 	});
 
 //mentor network
+	$("#showNetwork").on("click", function() {
+		$("#success").addClass("show")
+		$("#success").removeClass("hide")
+		$("#form").addClass("show")
+		$("#form").removeClass("hide")
+		$("form").addClass("hides");
+		console.log("Working")
+	});
+
+	$("#success a").on("click", function() {
+       $("#wrapper3").addClass("show")
+	});
 
 	$("#form").addClass('hide');
 
@@ -92,14 +104,13 @@ $(document).on("scroll", function() {
 	});
 
 
-$("#media").addClass("show")
-//global hides
- $("#youtube").addClass("hide");
- $("#googleSearch").addClass("hide");
- $("ul").addClass("hide");
- $("#userSearch").addClass("hide");
-
-
+//global shows for page 2
+	$("#media").addClass("show")
+//global hides for page 2
+	$("#youtube").addClass("hide");
+	$("#googleSearch").addClass("hide");
+	$("ul").addClass("hide");
+	$("#userSearch").addClass("hide");
 
 
 //on click for videos
@@ -114,8 +125,6 @@ $('#videos').on('click', function() {
 	 return false;
 	
 	});
-
-
 
 
 
@@ -250,20 +259,29 @@ $("#search").on('click', function() {
 //DATA STORAGE
 
   // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCdRBi1Jrb3Tgw3EFQelne-sIuFB9-7XTQ",
+var config = {
+	apiKey: "AIzaSyCdRBi1Jrb3Tgw3EFQelne-sIuFB9-7XTQ",
     authDomain: "mentor-network.firebaseapp.com",
     databaseURL: "https://mentor-network.firebaseio.com",
     storageBucket: "mentor-network.appspot.com",
-  };
-  firebase.initializeApp(config);
+};
+  	
+firebase.initializeApp(config);
 
-  var database = firebase.database();
+var database = firebase.database();
 
   //-----------------------
 
+  //global hides for page 3
+$("#success").addClass("hide");
+$("#wrapper3").addClass("hide");
+
+
 //On click listener to add user data
 $("#submit").on("click", function() {
+	$("#success").removeClass("hide")
+	$("form").addClass("hides")
+
 	console.log("Working")
 
 //grabs user input
@@ -291,8 +309,8 @@ $("#submit").on("click", function() {
 		address: address,
 		email: email,
 		affiliation: affiliation
-		
-	}
+			
+		}
 
  	database.ref("NewMember").push(newMember);
 
@@ -324,12 +342,17 @@ database.ref("NewMember").on("child_added", function(childSnapshot, prevChildKey
 	+ email + "</h3>" 
 	+ affiliation + "<br>");
 
-$("#network").append(column)
+	$("#network").append(column)
 
-return false;
- });
+	return false;
+
+ 	});
 
 });
+
+
+
+//map section
 
 //For handling multiple callbacks from two maps functions on this page
 	function initialize() {
