@@ -372,8 +372,8 @@ database.ref("NewMember").on("child_added", function(childSnapshot, prevChildKey
 
 	$("#network").append(column)
 
-	initMarkers(childSnapshot, prevChildKey);
-	
+	//initMarkers(childSnapshot, prevChildKey);
+
 	return false;
 	 });
 
@@ -481,35 +481,35 @@ database.ref("NewMember").on("child_added", function(childSnapshot, prevChildKey
       })
     }
 
-    function initMarkers(childSnapshot, prevChildKey) {
+ //    function initMarkers(childSnapshot, prevChildKey) {
 
-    	console.log("inside");
-    	console.log(childSnapshot);
-    	console.log(prevChildKey);
+ //    	console.log("inside");
+ //    	console.log(childSnapshot);
+ //    	console.log(prevChildKey);
 		
-			var firstName = (childSnapshot.val().firstName);
-			var lastName = (childSnapshot.val().lastName);
-			var mapLat = (childSnapshot.val().lat);
-			var mapLng = (childSnapshot.val().lng);
-			var mapMarker = mapLat+", "+mapLng;
+	// 		var firstName = (childSnapshot.val().firstName);
+	// 		var lastName = (childSnapshot.val().lastName);
+	// 		var mapLat = (childSnapshot.val().lat);
+	// 		var mapLng = (childSnapshot.val().lng);
+	// 		var mapMarker = mapLat+", "+mapLng;
 
-			var infowindow = new google.maps.InfoWindow({
-	          content: contentString
-	        });
+	// 		var infowindow = new google.maps.InfoWindow({
+	//           content: contentString
+	//         });
 
-			var marker = new google.maps.Marker({
-				map: map,
-				position: mapMarker
-			});
-			marker.addListener('click', function() {
-				infowindow.open(map, marker);
-			});
+	// 		var marker = new google.maps.Marker({
+	// 			map: map,
+	// 			position: mapMarker
+	// 		});
+	// 		marker.addListener('click', function() {
+	// 			infowindow.open(map, marker);
+	// 		});
 
-			//console.log("newMapMarker: ",firstName);
-			//console.log(mapMarker);
+	// 		//console.log("newMapMarker: ",firstName);
+	// 		//console.log(mapMarker);
 
-			return false;
-	}
+	// 		return false;
+	// }
 
 
 // Working on taking the user-submitted location, passing it through the geocoder,
