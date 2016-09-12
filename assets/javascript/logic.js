@@ -338,14 +338,11 @@ $("#submit").on("click", function() {
 
  	return false;
 
- 	//Didn't we have some sort of submission confirmation/close out of the
- 	//	registration window after someone hit 'Submit' in a previous version?
- 	//
- 	//Also, The Network div needs to either grow to fit the size of results or 
- 	//	have the number of results displayed limited -- ooooor which might be 
- 	//	cool with the map markers -- have a user choose to display mentors or
- 	//	mentees, and then filter to display only those results AND to only
- 	//	populate the map with the corresponding affiliate markers.
+ 	// NOTE -----
+ 	// I just noticed that everyone is being pushed in as a mentor, even when I 
+ 	// deliberately select mentee.  Are we positive that the way we captured values
+ 	// worked previously, or has it always defaulted to the mentor value and we 
+ 	// didn't notice becasue we were so excited that we got it to workin the first place?
 
 });
 
@@ -508,7 +505,8 @@ $("#submit").on("click", function() {
             '</div>'+
             '</div>';
 
-            console.log(contentString);
+           	var mentorImage = "../MentorProject/assets/images/StudentHat3.png";
+           	var menteeImage = "../MentorProject/assets/images/StudentHat2.png";
 
 			var infowindow = new google.maps.InfoWindow({
 	          content: contentString
@@ -518,6 +516,11 @@ $("#submit").on("click", function() {
 				map: map,
 				position: {lat: lat, lng: lng}
 			});
+				if (affiliation == 'mentor') {
+					marker.setIcon(mentorImage);
+				} else {
+					marker.setIcon(menteeImage);
+				}
 
 			marker.addListener('click', function() {
 				infowindow.open(map, marker);
