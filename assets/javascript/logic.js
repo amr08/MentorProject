@@ -248,12 +248,20 @@ $("#search").on('click', function() {
 //DATA STORAGE
 
   // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCdRBi1Jrb3Tgw3EFQelne-sIuFB9-7XTQ",
-    authDomain: "mentor-network.firebaseapp.com",
-    databaseURL: "https://mentor-network.firebaseio.com",
-    storageBucket: "mentor-network.appspot.com",
-  };
+  // commenting out Andrea's firebase and using my own info so I can see how data is being pushed
+  // var config = {
+  //   apiKey: "AIzaSyCdRBi1Jrb3Tgw3EFQelne-sIuFB9-7XTQ",
+  //   authDomain: "mentor-network.firebaseapp.com",
+  //   databaseURL: "https://mentor-network.firebaseio.com",
+  //   storageBucket: "mentor-network.appspot.com",
+  // };
+   	 var config = {
+	    apiKey: "AIzaSyAGHtoGLF2mmzjvPxE__kG87iRIorWeuzA",
+	    authDomain: "mptest-1473207656157.firebaseapp.com",
+	    databaseURL: "https://mptest-1473207656157.firebaseio.com",
+	    storageBucket: "mptest-1473207656157.appspot.com",
+  	 };
+
   firebase.initializeApp(config);
 
   var database = firebase.database();
@@ -270,57 +278,45 @@ $("#submit").on("click", function() {
 	var email = $("#email").val().trim();
 	var affiliation = $("input[name=networkSignUp]").val();
 
-//tarting geocoder
+//starting geocoder
 	var geocoder = new google.maps.Geocoder();
 	var infowindow = new google.maps.InfoWindow();
 	var loc = [];
-	//var latlng = "default";
-		console.log(address);
-		codeAddress();
+	var lat = "";
+	var lng = "";
+	
+		function requestCoordinates(address, done) {
+		  geocoder.geocode({ address: address}, function(results, status) {
+		    if (status !== google.maps.GeocoderStatus.OK) {
+		      return done(true);
+		    }
 
-		function codeAddress () {
-			geocoder.geocode( { 'address': address}, function(results, status) {
-				console.log(results);
-				if (status == google.maps.GeocoderStatus.OK) {
-					loc[0] = results[0].geometry.location.lat();
-        			loc[1] = results[0].geometry.location.lng();
-					console.log(loc);
-				/*	
-					lat = results[0].geometry.location.lat;
-					lng = results[0].geometry.location.lng;
-					latlng = lat+" ,"+lng;
-					console.log(results[0].geometry.location.lat);
-				*/
-				} else {
-					alert('Geocode was not successful for the following reason: '+status);
-				}
-			});
-		};
-		console.log("Does loc maintain appropriate scope: ", loc);
-	  
-		var newMapMarker = {
-
-			firstName: firstName,
-			lastName: lastName,
-			address: address,
-			email: email,
-			affiliation: affiliation,
-			loc: loc
-			
+		    done(false, {
+		      lat: results[0].geometry.location.lat(),
+		      lng: results[0].geometry.location.lng()
+		    });
+		  });
 		}
 
-	 	database.ref("newMapMarker").push(newMapMarker);
+		function createMapMarker(error, loc) {
+			if (error) {
+			    return console.log('Failed');
+			}
 
-    
+			database.ref("newMapMarker").push({
+			    firstName: firstName,
+			    lastName: lastName,
+			    address: address,
+			    email: email,
+			    affiliation: affiliation,
+			    loc: [loc.lat, loc.lng],
+			    lat: loc.lat,
+			    lng: loc.lng
+			  });
+		}
 
-   //If you are able to get markers to work you might  need this code below 
-	// //passing city into geocoder for lat long data
-	// var geocoder = new google.maps.Geocoder();
-
-	// var geoCode = geocoder.geocode(address);
-
-
-	// console.log(geoCode);
+	// Assumes address is defined somewhere else
+	requestCoordinates(address, createMapMarker);
   
 	var newMember = {
 
@@ -355,27 +351,27 @@ $("#submit").on("click", function() {
 
 
 //Getting info from firebase
-database.ref("NewMember").on("child_added", function(childSnapshot, prevChildKey){
-	
-	var firstName = (childSnapshot.val().firstName);
-	var lastName = (childSnapshot.val().lastName);
-	var address = (childSnapshot.val().address);
-	var email = (childSnapshot.val().email);
-	var affiliation = (childSnapshot.val().affiliation);
+	database.ref("newMapMarker").on("child_added", function(childSnapshot, prevChildKey){
+		
+		var firstName = (childSnapshot.val().firstName);
+		var lastName = (childSnapshot.val().lastName);
+		var address = (childSnapshot.val().address);
+		var email = (childSnapshot.val().email);
+		var affiliation = (childSnapshot.val().affiliation);
 
-	var column = $("<div class='column'>")
+		var column = $("<div class='column'>")
 
-	column.append("<br><h3> " + firstName + " " + lastName + "</h3><h3>"
-	+ address + "</h3><h3>"
-	+ email + "</h3>" 
-	+ affiliation + "<br>");
+		column.append("<br><h3> " + firstName + " " + lastName + "</h3><h3>"
+		+ address + "</h3><h3>"
+		+ email + "</h3>" 
+		+ affiliation + "<br>");
 
-	$("#network").append(column)
+		$("#network").append(column);
 
-	//initMarkers(childSnapshot, prevChildKey);
+		initMarkers(childSnapshot, prevChildKey);
 
-	return false;
-	 });
+		return false;
+	});
 
 });
 
@@ -435,7 +431,6 @@ database.ref("NewMember").on("child_added", function(childSnapshot, prevChildKey
         // more details for that place.
         searchBox.addListener('places_changed', function() {
           var places = searchBox.getPlaces();
-          console.log("places: ", places);
 
           if (places.length == 0) {
             return;
@@ -481,35 +476,59 @@ database.ref("NewMember").on("child_added", function(childSnapshot, prevChildKey
       })
     }
 
- //    function initMarkers(childSnapshot, prevChildKey) {
+    function initMarkers(childSnapshot, prevChildKey) {
 
- //    	console.log("inside");
- //    	console.log(childSnapshot);
- //    	console.log(prevChildKey);
+    	console.log("inside");
+    	console.log(childSnapshot);
 		
-	// 		var firstName = (childSnapshot.val().firstName);
-	// 		var lastName = (childSnapshot.val().lastName);
-	// 		var mapLat = (childSnapshot.val().lat);
-	// 		var mapLng = (childSnapshot.val().lng);
-	// 		var mapMarker = mapLat+", "+mapLng;
+			var firstName = (childSnapshot.val().firstName);
+			console.log(firstName);
+			var lastName = (childSnapshot.val().lastName);
+			console.log(lastName);
+			var affiliation = (childSnapshot.val().affiliation);
+			console.log(affiliation);
+			var email = (childSnapshot.val().email);
+			console.log(email);
+		//	var loc = (childSnapshot.val().loc());
+		//	console.log(loc);
+			var lat = (childSnapshot.val().lat);
+			console.log(lat);
+			var lng = (childSnapshot.val().lng);
+			console.log(lng);
+			var mapMarker = lat+", "+lng;
+			console.log(mapMarker);
 
-	// 		var infowindow = new google.maps.InfoWindow({
-	//           content: contentString
-	//         });
+			var contentString = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">'+firstName+' '+lastName+'</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Hi there!<br>I am a '+affiliation+' in your area and really excited to get to know one an other!</p>'+
+            '<p>I can be reached at '+email+'</p>'+
+            '</div>'+
+            '</div>';
 
-	// 		var marker = new google.maps.Marker({
-	// 			map: map,
-	// 			position: mapMarker
-	// 		});
-	// 		marker.addListener('click', function() {
-	// 			infowindow.open(map, marker);
-	// 		});
+            console.log(contentString);
 
-	// 		//console.log("newMapMarker: ",firstName);
-	// 		//console.log(mapMarker);
+			var infowindow = new google.maps.InfoWindow({
+	          content: contentString
+	        });
 
-	// 		return false;
-	// }
+			var marker = new google.maps.Marker({
+				map: map,
+				position: {lat: lat, lng: lng}
+			});
+
+			marker.addListener('click', function() {
+				infowindow.open(map, marker);
+			});
+
+			//console.log("newMapMarker: ",firstName);
+			//console.log(mapMarker);
+
+			return false;
+	}
+
 
 
 // Working on taking the user-submitted location, passing it through the geocoder,
