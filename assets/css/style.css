@@ -3,7 +3,7 @@
 body {
 	margin: 0 auto;
 	letter-spacing: 1.5px;
-	background-image: url("http://il5.picdn.net/shutterstock/videos/11667431/thumb/1.jpg");
+	background-image: url("https://raw.githubusercontent.com/amr08/MentorProject/master/assets/images/ppl.jpg");
     background-attachment: fixed;
     background-size: 2000px;
 
@@ -70,9 +70,14 @@ section {
 
 }
 
+.imgSize {
+	width: 400px;
+	height: 350px;
+}
+
 #page2 {
 
-	background-image: url("http://mirthmarfa.com/wp-content/uploads/2013/02/background.png");
+	background-image: url("https://raw.githubusercontent.com/amr08/MentorProject/master/assets/images/background.png");
 	background-size: cover;
 	background-repeat: repeat;
 	background-attachment: fixed;
@@ -168,7 +173,7 @@ a {
 
 #page3 {
 
-	background-image: url("http://il5.picdn.net/shutterstock/videos/11667431/thumb/1.jpg");
+	background-image: url("https://raw.githubusercontent.com/amr08/MentorProject/master/assets/images/ppl.jpg");
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -272,7 +277,7 @@ h4 label{
 	text-align: center;	
 	margin-top: 100px;
 	min-height: 700px;
-	background-image: url("https://a2ua.com/corkboard/corkboard-004.jpg");
+	background-image: url("https://raw.githubusercontent.com/amr08/MentorProject/master/assets/images/corkboard-004.jpg");
 	background-size: 1500px;
 	padding: 30px;
 	color: white;
