@@ -22,10 +22,12 @@ body {
 
 .hides {
 	visibility: hidden;
+
 }
 
 .shows {
 	visibility: visible;
+
 }
 
 /****************/
@@ -155,6 +157,7 @@ a {
 	font-size: 25px;
 	color: white;
 	padding: 10px;
+
 }
 
 #menu {
@@ -210,7 +213,6 @@ a {
 	margin-left: 80px;
 	width: 50%;
 
-
 }
 
 #mentorNetwork h3 {
@@ -252,7 +254,6 @@ a {
 	background: #1b1c1d;
 	opacity: .8;
 	
-
 }
 
 h4 label{
@@ -266,10 +267,6 @@ h4 label{
 	color: white;
 
 }
-
-
-
-
 
 
 /*/////////// API AREA*/
@@ -308,15 +305,16 @@ h4 label{
 }
 
 #userSearch{
-	
 	color: black;
 	text-align: center
+
 }
 
 #college-input {
 	width: 50%;
 
 }
+
 .items {
 	background-color: white;
 	margin: 0 auto;
@@ -349,6 +347,7 @@ h4 label{
 	background-image: url("https://raw.githubusercontent.com/amr08/MentorProject/master/assets/images/NS_2002_Slider_Location_940x400_ART_R1_Background.png");
    background-size: 100%;
    background-attachment: fixed;
+
 }
 
 .column {
@@ -358,7 +357,6 @@ h4 label{
 	width: 150px;
 	font-size: 16px;
 	padding: 10px;
-
 
 }
 
@@ -443,9 +441,8 @@ h4 label{
 
 		}
 
-
-
 }
+
 /*tablet*/
 	@media screen and (max-width: 768px) {
 
@@ -474,6 +471,7 @@ h4 label{
 		   	width: 50%;
 
 		}
+
 }
 
 /*phone in landscape*/
@@ -482,7 +480,6 @@ h4 label{
 		#mentorNetwork {
 			width: 100%;
 			margin-bottom: 0px;
-
 
 		}
 
@@ -493,17 +490,18 @@ h4 label{
 			margin-right: 20px;
 			margin-bottom: 30px;
 
-
 		}
 
 		#network {
 			width: 80%;
+
 		}
 
 		#wrapper3 {
 			min-height: 1500px;
 
 		}
+	
 
 
 

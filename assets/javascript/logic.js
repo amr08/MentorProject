@@ -318,8 +318,7 @@ $('form')
 // DATA STORAGE
 
 
-
-// Initialize Firebase
+	// Initialize Firebase
 
 
 	var config = {
@@ -333,21 +332,6 @@ $('form')
 
 	var database = firebase.database();
 
-<<<<<<< HEAD
-		  //global hides for page 3
-	$("#success").addClass("hide");
-	$("#wrapper3").addClass("hide");
-
-//On click listener to add user data
-$("#submit").on("click", function() {
-		$("#success").removeClass("hide");
-		$("form").addClass("hides");
-		$("#wrapper3").removeClass("hide");
-=======
-	  //-----------------------
-
-	 
-
 
 //On click listener to add user data
 	
@@ -357,9 +341,8 @@ $("#submit").on("click", function() {
 
 		console.log("firebase running")
 
->>>>>>> 8285e5dd6ee8ca73636fb8402ecdc8c201f42dc4
 
-	//grabs user input
+//grabs user input
 		var firstName = $("#firstName").val().trim();
 		var lastName = $("#lastName").val().trim();
 		var address = $("#address").val().trim();
@@ -368,24 +351,24 @@ $("#submit").on("click", function() {
 
 
 //starting geocoder
-	var geocoder = new google.maps.Geocoder();
-	var infowindow = new google.maps.InfoWindow();
-	var loc = [];
-	var lat = "";
-	var lng = "";
-	
-	function requestCoordinates(address, done) {
-	  geocoder.geocode({ address: address}, function(results, status) {
-	    if (status !== google.maps.GeocoderStatus.OK) {
-	      return done(true);
-	    }
+		var geocoder = new google.maps.Geocoder();
+		var infowindow = new google.maps.InfoWindow();
+		var loc = [];
+		var lat = "";
+		var lng = "";
+		
+		function requestCoordinates(address, done) {
+		  geocoder.geocode({ address: address}, function(results, status) {
+		    if (status !== google.maps.GeocoderStatus.OK) {
+		      return done(true);
+		    }
 
-	    done(false, {
-	      lat: results[0].geometry.location.lat(),
-	      lng: results[0].geometry.location.lng()
-	    });
-	  });
-	}
+		    done(false, {
+		      lat: results[0].geometry.location.lat(),
+		      lng: results[0].geometry.location.lng()
+		    });
+		  });
+		}
 
 		function createMapMarker(error, loc) {
 			if (error) {
@@ -404,37 +387,21 @@ $("#submit").on("click", function() {
 			  });
 		}
 
-	requestCoordinates(address, createMapMarker);
+		requestCoordinates(address, createMapMarker);
 
-		$("#firstName").val("");
-		$("#lastName").val("");
-		$("#address").val("");
-		$("#email").val("");
-		$("#radio input[name=networkSignUp]:checked").val("");
+			$("#firstName").val("");
+			$("#lastName").val("");
+			$("#address").val("");
+			$("#email").val("");
+			$("#radio input[name=networkSignUp]:checked").val("");
 
-	 	return false;
+		 	return false;
 
-<<<<<<< HEAD
 
-=======
 //end firebaseRun function	
 };
->>>>>>> 8285e5dd6ee8ca73636fb8402ecdc8c201f42dc4
-
-	   //If you are able to get markers to work you might  need this code below 
-		// //passing city into geocoder for lat long data
-		// var geocoder = new google.maps.Geocoder();
-
-		// var geoCode = geocoder.geocode(address);
 
 
- 	// NOTE -----
- 	// I just noticed that everyone is being pushed in as a mentor, even when I 
- 	// deliberately select mentee.  Are we positive that the way we captured values
- 	// worked previously, or has it always defaulted to the mentor value and we 
- 	// didn't notice becasue we were so excited that we got it to workin the first place?
-
-});
 
 //Getting info from firebase
 	database.ref("newMember").on("child_added", function(childSnapshot, prevChildKey){
@@ -456,18 +423,19 @@ $("#submit").on("click", function() {
 
 		initMarkers(childSnapshot, prevChildKey);
 
-<<<<<<< HEAD
+
 		return false;
 	});
+
+//ends document onReady
 });
-=======
+
 	
 
-});
 
->>>>>>> 8285e5dd6ee8ca73636fb8402ecdc8c201f42dc4
 
-//map section
+
+//Global map section
 
 //For handling multiple callbacks from two maps functions on this page
 	function initialize() {
