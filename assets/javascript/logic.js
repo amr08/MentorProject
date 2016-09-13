@@ -2,46 +2,47 @@
 $(document).ready(function(){
 
 
-$.stellar();
+	$.stellar();
 
 ////FRONT END JS////////
-$(window).scroll(function(){
+	$(window).scroll(function(){
 
-	$("#heading").css({"opacity" : 1-(($(this).scrollTop())/550)
-		
+		$("#heading").css({"opacity" : 1-(($(this).scrollTop())/550)
+			
+		});
+
+		$("#title").css({"opacity" : 1-(($(this).scrollTop())/550)
+				
+				
+		});
+
+
 	});
 
-	$("#title").css({"opacity" : 1-(($(this).scrollTop())/550)
-			
-			
-	});
 
+	$(document).on("scroll", function() {
 
-});
+		if ($(document).scrollTop() > 650){
+			$("#menu").fadeIn();
+			$("#menu").removeClass("hide");
+			$("#menu").addClass("show");
 
+		}
 
-$(document).on("scroll", function() {
+		else {
 
-	if ($(document).scrollTop() > 650){
-		$("#menu").fadeIn();
-		$("#menu").removeClass("hide");
-		$("#menu").addClass("show");
+			$("#menu").removeClass("show");
+			$("#menu").addClass("hide");
 
-	}
+		 }	
 
-	else {
-
-		$("#menu").removeClass("show");
-		$("#menu").addClass("hide");
-
-	 }	
-
-});	
+	});	
 
 //about modal click listener
 	$("#about").on("click", function(){
 		$('#aboutModal').modal('show');
-});
+
+	});
 
 
 //Dropdown Nav Menu
@@ -49,22 +50,36 @@ $(document).on("scroll", function() {
 	$("#dropDown").hide();
 
 	$("#menu").on("click", function(){
-
 		$("#dropDown").toggleClass("show");
+
 	});
 
+
 //mentor network
+
+	$("#showNetwork").on("click", function() {
+		$("#success").addClass("show")
+		$("#success").removeClass("hide")
+		$("#form").addClass("show")
+		$("#form").removeClass("hide")
+		$("form").addClass("hides");
+
+	});
+
+
+	$("#success a").on("click", function() {
+       $("#wrapper3").addClass("show")
+
+	});
 
 	$("#form").addClass('hide');
 
 	$("#mentor").on("click", function() {
-
 		$('#mentorModal').modal('show');
 
 	});
 
 	$("#mentee").on("click", function() {
-
 		$('#menteeModal').modal('show');
 
 	});
@@ -84,127 +99,120 @@ $(document).on("scroll", function() {
 	$('.ui.radio.checkbox').checkbox();
 
 
-//clears any box content  -not used yet//
 
-	$(".clearText").on("click", function() {
-		$("#theme-form input").val("");
+//global shows for page 2
+	$("#media").addClass("show")
 
-	});
-
-
-$("#media").addClass("show")
-//global hides
- $("#youtube").addClass("hide");
- $("#googleSearch").addClass("hide");
- $("ul").addClass("hide");
- $("#userSearch").addClass("hide");
-
-
+//global hides for page 2
+	$("#youtube").addClass("hide");
+	$("#googleSearch").addClass("hide");
+	$("ul").addClass("hide");
+	$("#userSearch").addClass("hide");
 
 
 //on click for videos
-$('#videos').on('click', function() {
-	$("#googleSearch").empty();
-	$("#youtube").toggleClass("show")
-	$("#googleSearch").removeClass("show")
-	$("#userSearch").removeClass("show");
-	$("ul").removeClass("show");
+	$('#videos').on('click', function() {
+		$("#googleSearch").empty();
+		$("#youtube").toggleClass("show")
+		$("#googleSearch").removeClass("show")
+		$("#userSearch").removeClass("show");
+		$("ul").removeClass("show");
 
 
-	 return false;
-	
+		 return false;
+		
 	});
-
-
 
 
 
 //ARTICLES API
 
 
-$("#articles").on("click", function(){
-	$("#googleSearch").empty();
-	$("ul").toggleClass("show");
-	$("#youtube").removeClass("show")
-	$("#userSearch").removeClass("show")
-	
+	$("#articles").on("click", function(){
+		$("#googleSearch").empty();
+		$("ul").toggleClass("show");
+		$("#youtube").removeClass("show")
+		$("#userSearch").removeClass("show")
+		
 
-function runApi(searchTerm) {
+		function runApi(searchTerm) {
 
-	var key = "AIzaSyC6YC_Oa1mPaMfdtU05zp09hlnvg0Zssms"
-        $.get({
+			var key = "AIzaSyC6YC_Oa1mPaMfdtU05zp09hlnvg0Zssms"
+		        $.get({
 
-            url: 'https://www.googleapis.com/customsearch/v1?key=' + key + '&cx=011631025692118016116:tkj65mrqycg&' + searchTerm,
-            data: {
-                format:'json'
-            },
+		            url: 'https://www.googleapis.com/customsearch/v1?key=' + key + '&cx=011631025692118016116:tkj65mrqycg&' + searchTerm,
+		            data: {
+		                format:'json'
+		            },
 
-        }).done(function(response){
-        	console.log(response.items)
- 		function api (a,b,c,d) {
- 			var links = a
-            var html = b
-            var siteImages = c
-            var title = d
-
-
-			var divs = $("<div class='items'>")
-			var a = $("<a>")
-			var image = $("<img>")
-
-            image.attr("src", siteImages)
-            divs.attr("href", links)
-
-            divs.append("<br>" + title + "<br>")
-            divs.append(image)
-			divs.append("<h2>" + html + "</h2>")
-			divs.append("<a href=" + links + ">" + links + "</a><br>")
-			
-			$("#googleSearch").append(divs); 	
-
- 		}
-
- 	api(response.items[0].link,response.items[0].htmlSnippet,response.items[0].pagemap.cse_thumbnail[0].src, response.items[0].title)        
- 	api(response.items[1].link,response.items[1].htmlSnippet,response.items[1].pagemap.cse_thumbnail[0].src, response.items[1].title) 
- 	api(response.items[2].link,response.items[2].htmlSnippet,response.items[2].pagemap.cse_thumbnail[0].src, response.items[2].title) 
-   	api(response.items[3].link,response.items[3].htmlSnippet,response.items[3].pagemap.cse_thumbnail[0].src, response.items[3].title) 
-    api(response.items[4].link,response.items[4].htmlSnippet,response.items[4].pagemap.cse_thumbnail[0].src, response.items[4].title) 
+		        }).done(function(response){
+		        	console.log(response.items)
+		 		function api (a,b,c,d) {
+		 			var links = a
+		            var html = b
+		            var siteImages = c
+		            var title = d
 
 
+					var divs = $("<div class='items'>")
+					var a = $("<a>")
+					var image = $("<img>")
+
+		            image.attr("src", siteImages)
+		            divs.attr("href", links)
+
+		            divs.append("<br>" + title + "<br>")
+		            divs.append(image)
+					divs.append("<h2>" + html + "</h2>")
+					divs.append("<a href=" + links + ">" + links + "</a><br>")
+					
+					$("#googleSearch").append(divs); 	
+
+		 		}
+
+		 	api(response.items[0].link,response.items[0].htmlSnippet,response.items[0].pagemap.cse_thumbnail[0].src, response.items[0].title)        
+		 	api(response.items[1].link,response.items[1].htmlSnippet,response.items[1].pagemap.cse_thumbnail[0].src, response.items[1].title) 
+		 	api(response.items[2].link,response.items[2].htmlSnippet,response.items[2].pagemap.cse_thumbnail[0].src, response.items[2].title) 
+		   	api(response.items[3].link,response.items[3].htmlSnippet,response.items[3].pagemap.cse_thumbnail[0].src, response.items[3].title) 
+		    api(response.items[4].link,response.items[4].htmlSnippet,response.items[4].pagemap.cse_thumbnail[0].src, response.items[4].title) 
+
+
+			});
+
+		};
+
+//Listeners for page2 images
+
+	$("#essay").on("click", function () {
+		$("#googleSearch").empty();
+		$("ul").addClass("show")
+		$("#googleSearch").addClass("show");
+		runApi('q=writing essays');
+
+		 return false;
+	        
 	});
 
-};
+	$("#financial").on("click", function () {
+		$("#googleSearch").empty();
+		$("#googleSearch").addClass("show");
+		runApi('q=financial aid');
 
-$("#essay").on("click", function () {
-	$("#googleSearch").empty();
-	$("ul").addClass("show")
-	$("#googleSearch").addClass("show");
-	runApi('q=writing essays');
+		 return false;
+	        
+	});
 
-	 return false;
-        
-});
+	$("#major").on("click", function () {
+		$("#googleSearch").empty();
+		$("#googleSearch").addClass("show");
+		runApi('q=selecting a major');
 
-$("#financial").on("click", function () {
-	$("#googleSearch").empty();
-	$("#googleSearch").addClass("show");
-	runApi('q=financial aid');
-
-	 return false;
-        
-});
-
-$("#major").on("click", function () {
-	$("#googleSearch").empty();
-	$("#googleSearch").addClass("show");
-	runApi('q=selecting a major');
-
-	 return false;
-        
-});
+		 return false;
+	        
+	});
 
 	
-return false;	
+	return false;	
 	
 });
 
@@ -216,28 +224,30 @@ return false;
 
 //// // USER SEARCH
 
-$("#other").on('click', function() {
-	$("#googleSearch").empty();
-	$("#userSearch").toggleClass("show")
-	$("#youtube").removeClass("show")
-	$("ul").removeClass("show")
-	// youtubeHide();
-	// $("#googleSearch").addClass("hide")
-	// $("#googleSearch").removeClass("show")
-	// $("ul").addClass("hide");
-	// $("ul").removeClass("show")
-	// $("#googleSearch").addClass("shows");
+	$("#other").on('click', function() {
+		$("#googleSearch").empty();
+		$("#userSearch").toggleClass("show")
+		$("#youtube").removeClass("show")
+		$("ul").removeClass("show")
+		// youtubeHide();
+		// $("#googleSearch").addClass("hide")
+		// $("#googleSearch").removeClass("show")
+		// $("ul").addClass("hide");
+		// $("ul").removeClass("show")
+		// $("#googleSearch").addClass("shows");
 
-   return false
-});
+	   return false
+	});
 
 
-$("#search").on('click', function() {
-	var userSearch = $("#college-input").val();
+	$("#search").on('click', function() {
+		console.log("works")
+		var userSearch = $("#college-input").val();
+	    console.log(userSearch)
 
-    // runApi('q=' + userSearch);
+	    // runApi('q=' + userSearch);
 
-});
+	});
 
 
 
@@ -247,36 +257,38 @@ $("#search").on('click', function() {
 
 //DATA STORAGE
 
-  // Initialize Firebase
-  // commenting out Andrea's firebase and using my own info so I can see how data is being pushed
-  // var config = {
-  //   apiKey: "AIzaSyCdRBi1Jrb3Tgw3EFQelne-sIuFB9-7XTQ",
-  //   authDomain: "mentor-network.firebaseapp.com",
-  //   databaseURL: "https://mentor-network.firebaseio.com",
-  //   storageBucket: "mentor-network.appspot.com",
-  // };
-   	 var config = {
-	    apiKey: "AIzaSyAGHtoGLF2mmzjvPxE__kG87iRIorWeuzA",
-	    authDomain: "mptest-1473207656157.firebaseapp.com",
-	    databaseURL: "https://mptest-1473207656157.firebaseio.com",
-	    storageBucket: "mptest-1473207656157.appspot.com",
-  	 };
 
-  firebase.initializeApp(config);
+// Initialize Firebase
 
-  var database = firebase.database();
 
-  //-----------------------
+	var config = {
+		apiKey: "AIzaSyCdRBi1Jrb3Tgw3EFQelne-sIuFB9-7XTQ",
+	    authDomain: "mentor-network.firebaseapp.com",
+	    databaseURL: "https://mentor-network.firebaseio.com",
+	    storageBucket: "mentor-network.appspot.com",
+	};
+	  	
+	firebase.initializeApp(config);
+
+	var database = firebase.database();
+
+		  //global hides for page 3
+	$("#success").addClass("hide");
+	$("#wrapper3").addClass("hide");
 
 //On click listener to add user data
 $("#submit").on("click", function() {
+		$("#success").removeClass("hide");
+		$("form").addClass("hides");
+		$("#wrapper3").removeClass("hide");
 
-//grabs user input
-	var firstName = $("#firstName").val().trim();
-	var lastName = $("#lastName").val().trim();
-	var address = $("#address").val().trim();
-	var email = $("#email").val().trim();
-	var affiliation = $("input[name=networkSignUp]").val();
+	//grabs user input
+		var firstName = $("#firstName").val().trim();
+		var lastName = $("#lastName").val().trim();
+		var address = $("#address").val().trim();
+		var email = $("#email").val().trim();
+		var affiliation = $("input[name=networkSignUp]").val();
+
 
 //starting geocoder
 	var geocoder = new google.maps.Geocoder();
@@ -285,18 +297,18 @@ $("#submit").on("click", function() {
 	var lat = "";
 	var lng = "";
 	
-		function requestCoordinates(address, done) {
-		  geocoder.geocode({ address: address}, function(results, status) {
-		    if (status !== google.maps.GeocoderStatus.OK) {
-		      return done(true);
-		    }
+	function requestCoordinates(address, done) {
+	  geocoder.geocode({ address: address}, function(results, status) {
+	    if (status !== google.maps.GeocoderStatus.OK) {
+	      return done(true);
+	    }
 
-		    done(false, {
-		      lat: results[0].geometry.location.lat(),
-		      lng: results[0].geometry.location.lng()
-		    });
-		  });
-		}
+	    done(false, {
+	      lat: results[0].geometry.location.lat(),
+	      lng: results[0].geometry.location.lng()
+	    });
+	  });
+	}
 
 		function createMapMarker(error, loc) {
 			if (error) {
@@ -317,13 +329,22 @@ $("#submit").on("click", function() {
 
 	requestCoordinates(address, createMapMarker);
 
-	$("#firstName").val("");
-	$("#lastName").val("");
-	$("#address").val("");
-	$("#email").val("");
-	$("#radio input[name=networkSignUp]:checked").val("");
+		$("#firstName").val("");
+		$("#lastName").val("");
+		$("#address").val("");
+		$("#email").val("");
+		$("#radio input[name=networkSignUp]:checked").val("");
 
- 	return false;
+	 	return false;
+
+
+
+	   //If you are able to get markers to work you might  need this code below 
+		// //passing city into geocoder for lat long data
+		// var geocoder = new google.maps.Geocoder();
+
+		// var geoCode = geocoder.geocode(address);
+
 
  	// NOTE -----
  	// I just noticed that everyone is being pushed in as a mentor, even when I 
@@ -332,7 +353,6 @@ $("#submit").on("click", function() {
  	// didn't notice becasue we were so excited that we got it to workin the first place?
 
 });
-
 
 //Getting info from firebase
 	database.ref("newMember").on("child_added", function(childSnapshot, prevChildKey){
@@ -356,14 +376,15 @@ $("#submit").on("click", function() {
 
 		return false;
 	});
-
 });
+
+//map section
 
 //For handling multiple callbacks from two maps functions on this page
 	function initialize() {
 		initMap();
 		initAutocomplete();
-	}
+	};
 
 //Attempting to load geolocation search box in mentor/mentee form
 
@@ -377,11 +398,11 @@ $("#submit").on("click", function() {
         		return;
         	}
 		});
-	}
+	};
 
 //Initial map Andrea got to load with hard-coded location
   var map;
-      function initMap() {
+    function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 35.7796, lng: -78.6382},
           zoom: 8
@@ -458,7 +479,7 @@ $("#submit").on("click", function() {
           map.fitBounds(bounds);
         });
       })
-    }
+    };
 
     function initMarkers(childSnapshot, prevChildKey) {
 
@@ -515,7 +536,8 @@ $("#submit").on("click", function() {
 
 
 			return false;
-	}
+	};
+
 
 
 
