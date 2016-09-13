@@ -348,7 +348,7 @@ $('form')
 		var address = $("#address").val().trim();
 		var email = $("#email").val().trim();
 		var affiliation = $("input[name=networkSignUp]").val();
-		
+
 
 
 //starting geocoder
@@ -571,8 +571,8 @@ $('form')
             '</div>'+
             '</div>';
 
-           	var mentorImage = "../MentorProject/assets/images/StudentHat5.png";
-           	var menteeImage = "../MentorProject/assets/images/StudentHat4.png";
+           	var mentorImage = "../assets/images/StudentHat5.png";
+           	var menteeImage = "../assets/images/StudentHat4.png";
 
 			var infowindow = new google.maps.InfoWindow({
 	          content: contentString
