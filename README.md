@@ -7,19 +7,19 @@ An online mentorship and networking platform for those interested in seeking out
 
 Technologies used:
 
-Jquery/Javascript
+- Jquery/Javascript
 
-Firebase Database
+- Firebase Database
 
-Stellar.js
+- Stellar.js
 
-Semantic UI
+- Semantic UI
 
-Bootstrap
+- Bootstrap
 
-Google Maps API
+- Google Maps API
 
-Google Search API
+- Google Search API
 
 
 
@@ -47,11 +47,11 @@ Prerequisities:
 
 Built with:
 
-Sublime Text
+- Sublime Text
 
-Video tutorials
+- Video tutorials
 
-Pen, paper, and creative thought - :)
+- Pen, paper, and creative thought - :)
 
 
 
