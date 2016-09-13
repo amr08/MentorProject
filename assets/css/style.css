@@ -132,11 +132,6 @@ a p {
 
 }
 
-	.thumbnail:hover {
-		color: #6dffff;;
-		text-decoration: none;
-
-	}
 
 a {
 	width: 100%;
@@ -145,17 +140,11 @@ a {
 
 }
 
-/*a:hover {
-		text-decoration: none;
-		color: #6dffff;
+	a:focus, a:hover {
+	    color: #6dffff;
+	    text-decoration: none;
 
-	}*/
-
-/*.thumbnail:visited {
-		text-decoration: none;
-		color: #6dffff;
-
-	}*/
+	}
 
 #menu {
 	position:fixed;
@@ -205,10 +194,11 @@ a {
 	border-radius: 10px;
 	float: left;
 	padding: 10px;
-	height: 280px;
-	position: relative;
-	top: 500px;
-	left: 80px;
+	padding-bottom: 30px;
+	margin-top: 500px;
+	margin-left: 80px;
+	width: 50%;
+
 
 }
 
@@ -245,11 +235,12 @@ a {
 	font-size: 18px;
 	font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 	text-align: left;
-	width: 40%;
+	width: 35%;
 	padding: 25px;
 	border-radius: 10px;
 	background: #1b1c1d;
 	opacity: .8;
+	
 
 }
 
@@ -280,9 +271,9 @@ h4 label{
 	box-shadow: 0px 0px 20px black;
 	text-align: center;	
 	margin-top: 100px;
-	min-height: 600px;
+	min-height: 700px;
 	background-image: url("https://a2ua.com/corkboard/corkboard-004.jpg");
-	background-size: cover;
+	background-size: 1500px;
 	padding: 30px;
 	color: white;
 
@@ -332,9 +323,10 @@ h4 label{
 }
 
 #wrapper3 {
-	min-height: 1000px;
-	background: white;
-
+	min-height: 800px;
+	background-image: url("http://www.stiridinbelgia.be/wp-content/uploads/2016/04/NS_2002_Slider_Location_940x400_ART_R1_Background.png");
+   background-size: 100%;
+   background-attachment: fixed;
 }
 
 .column {
@@ -345,6 +337,7 @@ h4 label{
 	font-size: 16px;
 	padding: 10px;
 
+
 }
 
 #network {
@@ -352,7 +345,8 @@ h4 label{
 	float: left;
 	margin-left: 50px;
 	height: 100%;
-	box-shadow: 0px 0px 20px black;
+	background: white;
+	border-radius: 10px;
 
 }
 
@@ -402,249 +396,97 @@ h4 label{
 
 #city {
 	width: 200px;
-	
+
 }
 
 
 /*regular screen*/
 	@media screen and (max-width: 980px) {
 		
+		#mentorNetwork {
+			margin-left: 20px;
+
+		}
+
+
+		#map {
+			float: left;
+			top: 20px;
+			left: 200px;			
+
+		}
+
+		#wrapper3 {
+			min-height: 1200px;
+
+		}
+
+
 
 }
-
-		/*aside {
-			margin-right: 18%;
-		}
-
-		article {
-			width: 400px;
-
-		}
-
-		article img {
-			width: 100%;
-			margin-bottom: 20px;
-
-		}
-
-		.photo {
-			width: 350px;
-			height: 300px;
-		}
-
-			#box1 {
-				width: 350px;
-				margin-top: 235px;
-			}
-
-			#box2 {
-				margin-top: 565px;
-				margin-left: 0;
-				width: 350px;
-			}
-        
-       		#box3 { 
-        		margin-top: 900px; 
-        		width: 350px;
-   	   		}
-	
-        	#box4 {
-        		margin-left: 0px;
-        		margin-top: 1230px;
-        		width: 350px;
-       		}
-
-			#box5 {
-				margin-top: 1555px;
-				width: 350px;
-				
-			}
-		}
-
-
 /*tablet*/
-/*	@media screen and (max-width: 768px) {
+	@media screen and (max-width: 768px) {
+
+		#mentorNetwork {
+			margin-left: 10px;
+			width:40%;
+			margin-top: 300px;
 
 
-		.wrapper {
-			margin: 0px;
-			max-width: 768px;
-
-			}
+		}
+	
+		#form {
+			height: 60%;
+			width: 40%;
+			margin-top: 300px;
+		}
 		
-		header {
-			position: static;
-			width: 100%;
-			height: 96px;
-
-		}
-
-		header h1 {
-			margin-left: 2%;
-
-		}
-
-		header ul {	
-			margin-right: 2%;
-
-		}
-
-		article {
-			width: 98%;
-			margin-left: 9px;
-			margin-top: -15%;
-		
-		}
-
-		article img {
-			width: 50%;
-
-		}
-
-		aside {
-			float: left;
-			border: 2px solid black;
-			margin-bottom: 15%;
-			margin-top: -8%;
-			margin-left: 1%;
-			width: 98%;
-
-		}
-
-		aside ul {
-			text-align: left;
-
-		}
-
-		aside h2 {
-			text-align: left;
+		#mentee {
+			margin-bottom: 15px;
+			margin-left: 5px;
+	
 	
 		}
 
-		.photo {
-			height: 250px;
-			width: 300px;
-			margin: 20px;
+		#map {
+		   	width: 50%;
 
 		}
-
-			#box1 {
-				margin-top: 190px;
-				margin-left: 20px;
-				width: 300px;
-			}
-
-			#box2 {
-				margin-top: 190px;
-				margin-left: 360px;
-				width: 300px;
-
-			}
-
-			#box3 {
-				margin-left: 20px;
-				margin-top: 485px;
-				width: 300px;
-
-			}
-
-			#box4 {
-	 			margin-left:360px;
-	 			margin-top: 485px;
-	 			width: 300px;
-
-			}
-
-			#box5 {
-	 			margin-left:20px;
-	 			margin-top: 775px;
-	 			width: 300px;
-
-			}
-
-		
-		}
+}
 
 /*phone in landscape*/
-	/*@media screen and (max-width: 640px) {*/
+	@media screen and (max-width: 640px) {
 
-/*		header {
-			position: static;
-			margin-left: -2%;
-
-		}
-
-		header h1 {
+		#mentorNetwork {
 			width: 100%;
+			margin-bottom: 0px;
+
 
 		}
 
-		header ul{
-			margin-top: 0;
-			width: 100%;
-
-		}
-
-		header li {
-			padding-left: 10%;
-			padding-right: 13.3%;
-			text-align: center;
+		 #form {
 			
+			width: 90%;
+			margin-top: 20px;
+			margin-right: 20px;
+			margin-bottom: 30px;
+
+
 		}
+
+		#network {
+			width: 80%;
+		}
+
+		#wrapper3 {
+			min-height: 1500px;
+
+		}
+
+
+
+}
 		
-		.wrapper {
-			padding: 0px;
-			width: 640px;
-
-		}
-
-		article {
-			margin-top: 0%;
-
-		}
-
-		.photo {
-			width: 500px;
-			height: 400px;
-
-		}
-
-			#box1 {
-				width: 500px;
-				margin-top: 340px;
-				margin-left: 20px;
-
-			}
 		
-			#box2 {
-				width: 500px;
-				margin-top: 790px;
-				margin-left: 20px;
-
-			}
-
-			#box3 {
-				width: 500px;
-				margin-top: 1230px;
-				margin-left: 20px;
-
-			}
-
-			#box4 {
-				width:500px;
-				margin-left: 20px;
-				margin-top: 1665px;
-				
-			}
-
-			#box5 {
-				width: 500px;
-				margin-left:20px;
-				margin-top: 2110px;
-
-			}*/
-*/
-		}
-		*/
 
 

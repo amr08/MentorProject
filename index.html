@@ -14,11 +14,12 @@
 	<link rel="stylesheet" href="assets/css/reset.css"></link>
 
 
-	<script rel="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+	<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
 
-	<script rel="text/javascript" src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+	<script  src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
 
-	<script rel="text/javascript" src="assets/css/Semantic-UI-CSS-master/semantic.js"></script>
+	<script  src="assets/css/Semantic-UI-CSS-master/semantic.js"></script>
+
 
 
 </head>
@@ -41,7 +42,7 @@
 
 		  		<a href="#page3"><button  id="connect" class="ui inverted basic teal button space">Connect</button></a>
 
-		  		<a href="#wrapper3"><button  id="ourNetwork" class="ui inverted basic teal button space">Our Network</button></a>
+		  		<a href="#wrapper3"><button  id="ourNetwork" class="ui inverted basic teal button space">The Network</button></a>
 	  		</div>
 	 
 	</div>
@@ -310,37 +311,39 @@
 <!--closes mentor network div-->
 			</div>
 		
-
+<!--form!-->
 				<div id="form">
 						<div id="success" class="ui text container">
 					  		<h4> Welcome! </h4>
 					  		<a href="#wrapper3"> <button class="ui inverted basic teal button space">View our Network</button></a>
 					  	</div>
-					<form class="ui form ">
+
+					<form class="ui form">
 
 						<div class="fields">
 							<div class="field">
 							    <h4><label>First Name</label></h4>
-							    <input type="text" id="firstName" name="first-name" placeholder="First Name">
+							    <input type="text" id="firstName" name="firstName" placeholder="First Name">
 						 	</div>
 
 							<div class="field">
 							    <h4><label>Last Name</label></h4>
-							    <input type="text" name="last-name" id="lastName" placeholder="Last Name">
+							    <input type="text" name="lastName" id="lastName" placeholder="Last Name">
 							</div>
 						</div>
 
 						<div class="ten wide field">
 							 <h4><label>City, State</label></h4>
-							 <input id="address" type="text" address="address" placeholder="Address">
+							 <input id="address" type="text" name="address" placeholder="Address">
 						</div>
 
 						<div class="ten wide field">
 						    <h4><label>Email</label></h4>
-						    <input type="text" id="email" email="email" placeholder="Email Address">
+						    <input type="email" id="email" name="email" placeholder="Email Address">
 						</div>
 
 				  		<div class="grouped fields">
+
 
 				    		 <h4><label id="radio" for="networkSignup">Select your affiliation:</label></h4>
 
@@ -360,9 +363,10 @@
 
 
 					  	<button class="ui button cancel">Cancel</button>
-					  	<button class="ui teal button" id="submit" type="submit">Submit
-					  	</button>
-					  		
+					  	<div class="ui teal submit button" id="submit">Submit
+
+					  	</div>
+					  			 <div class="ui error message"></div>
 					</form>
 
 				</div>
@@ -377,7 +381,7 @@
 </div>
 
 
-	<div id="wrapper3">
+	<div id="wrapper3" data-stellar-background-ratio="0.5">
 		
 			<h3 class="page2Title border"> The Network</h3>
 				<div class= "container" id="network">

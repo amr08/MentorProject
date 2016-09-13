@@ -164,7 +164,7 @@ $(document).ready(function(){
 		            divs.append("<br>" + title + "<br>")
 		            divs.append(image)
 					divs.append("<h2>" + html + "</h2>")
-					divs.append("<a href=" + links + ">" + links + "</a><br>")
+					divs.append("<a href=" + links + "target='_blank'>" + links + "</a><br>")
 					
 					$("#googleSearch").append(divs); 	
 
@@ -229,7 +229,9 @@ $(document).ready(function(){
 		$("#userSearch").toggleClass("show")
 		$("#youtube").removeClass("show")
 		$("ul").removeClass("show")
-		// youtubeHide();
+
+
+
 		// $("#googleSearch").addClass("hide")
 		// $("#googleSearch").removeClass("show")
 		// $("ul").addClass("hide");
@@ -254,8 +256,67 @@ $(document).ready(function(){
 
 //////
 
+// formValidate();
+//form validation
 
-//DATA STORAGE
+$('form')
+  .form({
+    fields: {
+      empty: {
+        identifier  :'firstName',
+        rules: [
+          {
+            type   :'empty',
+            prompt :'Please enter your name'
+          }
+        ]
+      },
+        empty: {
+        identifier  :'lastName',
+        rules: [
+          {
+            type   :'empty',
+            prompt :'Please enter your name'
+          }
+        ]
+      },
+
+        empty: {
+        identifier  :'address',
+        rules: [
+          {
+            type   :'empty',
+            prompt :'Please enter your location'
+          }
+        ]
+      },
+        empty: {
+        identifier  :'email',
+        rules: [
+          {
+            type   : 'email',
+            prompt : 'Please enter a valid email'
+          }
+        ]
+      }
+//this listener runs firebase ONLY after passing form validation 
+    },  onSuccess: function(event) {
+    	firebaseRun();    
+    	event.preventDefault();
+    	console.log("form Validation Working")
+  }
+			
+ });
+
+
+ //global hides for page 3
+	$("#success").addClass("hide");
+	$("#wrapper3").addClass("hide");
+
+
+
+// DATA STORAGE
+
 
 // Initialize Firebase
 
@@ -272,15 +333,16 @@ $(document).ready(function(){
 
 	  //-----------------------
 
-	  //global hides for page 3
-	$("#success").addClass("hide");
-	$("#wrapper3").addClass("hide");
+	 
 
 
-	//On click listener to add user data
-	$("#submit").on("click", function() {
+//On click listener to add user data
+	
+	function firebaseRun() {		
 		$("#success").removeClass("hide")
 		$("form").addClass("hides")
+
+		console.log("firebase running")
 
 
 	//grabs user input
@@ -322,8 +384,8 @@ $(document).ready(function(){
 
 	 	return false;
 
-	});
-
+//end firebaseRun function	
+};
 
 //Getting info from firebase
 	database.ref("NewMember").on("child_added", function(childSnapshot, prevChildKey){
@@ -347,8 +409,9 @@ $(document).ready(function(){
 
 	 	});
 
-	});
+	
 
+});
 
 
 //map section
@@ -456,6 +519,8 @@ $(document).ready(function(){
         });
       })
     }
+
+
 
 
 
