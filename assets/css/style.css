@@ -151,6 +151,12 @@ a {
 
 	}
 
+#text {
+	font-size: 25px;
+	color: white;
+	padding: 10px;
+}
+
 #menu {
 	position:fixed;
 	float: right;
@@ -301,6 +307,16 @@ h4 label{
 
 }
 
+#userSearch{
+	
+	color: black;
+	text-align: center
+}
+
+#college-input {
+	width: 50%;
+
+}
 .items {
 	background-color: white;
 	margin: 0 auto;
@@ -326,6 +342,7 @@ h4 label{
 	margin: 20px;
 
 }
+
 
 #wrapper3 {
 	min-height: 800px;
