@@ -23,19 +23,19 @@ Prerequisities
 
 What to install and how for local development and testing purposes
 
-- jQuery: Use CDN: <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+- jQuery: Use CDN: "https://code.jquery.com/jquery-2.2.1.min.js"
 
 - stellar.js: visit http://markdalgleish.com/projects/stellar.js/ and download.
 
 - Semantic UI: visit http://semantic-ui.com/introduction/getting-started.html and download.
 
-- Boostrap: use CND - <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
-integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+- Boostrap: use CND - "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
 
-- Firebase: use CDN = <script  src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
 
-- Google Maps API:  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAetju9T5CZukRPRTUFU8DpOT3M85pssOo&callback=initialize&libraries=places"
-    async defer></script>
+- Firebase: use CDN = "https://www.gstatic.com/firebasejs/live/3.0/firebase.js"
+
+- Google Maps API:  "https://maps.googleapis.com/maps/api/js?key=AIzaSyAetju9T5CZukRPRTUFU8DpOT3M85pssOo&callback=initialize&libraries=places"
+   
 
 
 Built With
