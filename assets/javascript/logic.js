@@ -348,6 +348,7 @@ $('form')
 		var address = $("#address").val().trim();
 		var email = $("#email").val().trim();
 		var affiliation = $("input[name=networkSignUp]").val();
+		
 
 
 //starting geocoder
