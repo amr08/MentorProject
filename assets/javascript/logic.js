@@ -164,7 +164,7 @@ $(document).ready(function(){
 		            divs.append("<br>" + title + "<br>")
 		            divs.append(image)
 					divs.append("<h2>" + html + "</h2>")
-					divs.append("<a href=" + links + ">" + links + "</a><br>")
+					divs.append("<a href=" + links + "target='_blank'>" + links + "</a><br>")
 					
 					$("#googleSearch").append(divs); 	
 
@@ -229,7 +229,9 @@ $(document).ready(function(){
 		$("#userSearch").toggleClass("show")
 		$("#youtube").removeClass("show")
 		$("ul").removeClass("show")
-		// youtubeHide();
+
+
+
 		// $("#googleSearch").addClass("hide")
 		// $("#googleSearch").removeClass("show")
 		// $("ul").addClass("hide");
@@ -254,8 +256,67 @@ $(document).ready(function(){
 
 //////
 
+// formValidate();
+//form validation
 
-//DATA STORAGE
+$('form')
+  .form({
+    fields: {
+      empty: {
+        identifier  :'firstName',
+        rules: [
+          {
+            type   :'empty',
+            prompt :'Please enter your name'
+          }
+        ]
+      },
+        empty: {
+        identifier  :'lastName',
+        rules: [
+          {
+            type   :'empty',
+            prompt :'Please enter your name'
+          }
+        ]
+      },
+
+        empty: {
+        identifier  :'address',
+        rules: [
+          {
+            type   :'empty',
+            prompt :'Please enter your location'
+          }
+        ]
+      },
+        empty: {
+        identifier  :'email',
+        rules: [
+          {
+            type   : 'email',
+            prompt : 'Please enter a valid email'
+          }
+        ]
+      }
+//this listener runs firebase ONLY after passing form validation 
+    },  onSuccess: function(event) {
+    	firebaseRun();    
+    	event.preventDefault();
+    	console.log("form Validation Working")
+  }
+			
+ });
+
+
+ //global hides for page 3
+	$("#success").addClass("hide");
+	$("#wrapper3").addClass("hide");
+
+
+
+// DATA STORAGE
+
 
 
 // Initialize Firebase
@@ -272,6 +333,7 @@ $(document).ready(function(){
 
 	var database = firebase.database();
 
+<<<<<<< HEAD
 		  //global hides for page 3
 	$("#success").addClass("hide");
 	$("#wrapper3").addClass("hide");
@@ -281,6 +343,21 @@ $("#submit").on("click", function() {
 		$("#success").removeClass("hide");
 		$("form").addClass("hides");
 		$("#wrapper3").removeClass("hide");
+=======
+	  //-----------------------
+
+	 
+
+
+//On click listener to add user data
+	
+	function firebaseRun() {		
+		$("#success").removeClass("hide")
+		$("form").addClass("hides")
+
+		console.log("firebase running")
+
+>>>>>>> 8285e5dd6ee8ca73636fb8402ecdc8c201f42dc4
 
 	//grabs user input
 		var firstName = $("#firstName").val().trim();
@@ -337,7 +414,12 @@ $("#submit").on("click", function() {
 
 	 	return false;
 
+<<<<<<< HEAD
 
+=======
+//end firebaseRun function	
+};
+>>>>>>> 8285e5dd6ee8ca73636fb8402ecdc8c201f42dc4
 
 	   //If you are able to get markers to work you might  need this code below 
 		// //passing city into geocoder for lat long data
@@ -374,9 +456,16 @@ $("#submit").on("click", function() {
 
 		initMarkers(childSnapshot, prevChildKey);
 
+<<<<<<< HEAD
 		return false;
 	});
 });
+=======
+	
+
+});
+
+>>>>>>> 8285e5dd6ee8ca73636fb8402ecdc8c201f42dc4
 
 //map section
 
@@ -537,6 +626,8 @@ $("#submit").on("click", function() {
 
 			return false;
 	};
+
+
 
 
 

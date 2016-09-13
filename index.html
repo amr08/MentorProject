@@ -14,11 +14,12 @@
 	<link rel="stylesheet" href="assets/css/reset.css"></link>
 
 
-	<script rel="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+	<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
 
-	<script rel="text/javascript" src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+	<script  src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
 
-	<script rel="text/javascript" src="assets/css/Semantic-UI-CSS-master/semantic.js"></script>
+	<script  src="assets/css/Semantic-UI-CSS-master/semantic.js"></script>
+
 
 
 </head>
@@ -41,7 +42,7 @@
 
 		  		<a href="#page3"><button  id="connect" class="ui inverted basic teal button space">Connect</button></a>
 
-		  		<a href="#wrapper3"><button  id="ourNetwork" class="ui inverted basic teal button space">Our Network</button></a>
+		  		<a href="#wrapper3"><button  id="ourNetwork" class="ui inverted basic teal button space">The Network</button></a>
 	  		</div>
 	 
 	</div>
@@ -113,20 +114,20 @@
 		<div class="row">
 				<div class="col-sm-4">
 				    <a href="#" class="thumbnail" id="videos">
-				    	<img src="http://campusbeast.com/wp-content/uploads/2014/04/xeducation-admissions-applying_600x315-600x400.jpg.pagespeed.ic.qF69zGZXMa.jpg" alt="college sign"><p>Videos</p>
+				    	<img src="https://raw.githubusercontent.com/amr08/MentorProject/master/assets/images/xeducation-admissions-applying_600x315-600x400.jpg.pagespeed.ic.qF69zGZXMa.jpg" alt="Admission Sign"><p>Videos</p>
 				    </a>
 				</div>
 
 				<div class="col-sm-4">
 				    <a href="#" class="thumbnail" id="articles">
-				    	<img src="http://vsa-aas.ch/wp-content/uploads/2015/12/Trinity-College-Library-Dublin.jpg"><p>Articles</p> 
+				    	<img src="assets/images/Trinity-College-Library-Dublin.jpg"  alt="Trinity College Library"><p>Articles</p> 
 				    </a>
 				</div>
 
 				<div class="col-sm-4">
 				    <a href="#" class="thumbnail" id="other">
-				     	<img src="http://www.greatvaluecolleges.net/wp-content/uploads/2016/01/harvard-university-cheapest-colleges-most-beautiful-college-campuses.jpeg"
-				   alt="..."><p>Other</p>
+				     	<img src="https://raw.githubusercontent.com/amr08/MentorProject/master/assets/images/harvard-university-cheapest-colleges-most-beautiful-college-campuses.jpeg"
+				   alt="College Photo"><p>Other</p>
 				    </a>
 				</div>
 
@@ -265,7 +266,7 @@
 		 					</div>
 
 							<div class="image content">
-					    		<div class="image"><img src="https://cms-assets.tutsplus.com/uploads/users/23/posts/24695/preview_image/mentor-relationship.png">
+					    		<div class="image"><img class="imgSize" src="https://raw.githubusercontent.com/amr08/MentorProject/master/assets/images/mentors.jpg">
 					    		</div>
 
 								<div class="description">
@@ -290,7 +291,7 @@
 					 		</div>
 
 							<div class="image content">
-								<div class="image"> <img src="https://cms-assets.tutsplus.com/uploads/users/23/posts/24695/preview_image/mentor-relationship.png">
+								<div class="image"> <img class="imgSize" src="https://raw.githubusercontent.com/amr08/MentorProject/master/assets/images/career-planning-road-sign.jpg">
 								</div>
 
 								<div class="description">
@@ -310,37 +311,39 @@
 <!--closes mentor network div-->
 			</div>
 		
-
+<!--form!-->
 				<div id="form">
 						<div id="success" class="ui text container">
 					  		<h4> Welcome! </h4>
 					  		<a href="#wrapper3"> <button class="ui inverted basic teal button space">View our Network</button></a>
 					  	</div>
-					<form class="ui form ">
+
+					<form class="ui form">
 
 						<div class="fields">
 							<div class="field">
 							    <h4><label>First Name</label></h4>
-							    <input type="text" id="firstName" name="first-name" placeholder="First Name">
+							    <input type="text" id="firstName" name="firstName" placeholder="First Name">
 						 	</div>
 
 							<div class="field">
 							    <h4><label>Last Name</label></h4>
-							    <input type="text" name="last-name" id="lastName" placeholder="Last Name">
+							    <input type="text" name="lastName" id="lastName" placeholder="Last Name">
 							</div>
 						</div>
 
 						<div class="ten wide field">
 							 <h4><label>City, State</label></h4>
-							 <input id="address" type="text" address="address" placeholder="Address">
+							 <input id="address" type="text" name="address" placeholder="Address">
 						</div>
 
 						<div class="ten wide field">
 						    <h4><label>Email</label></h4>
-						    <input type="text" id="email" email="email" placeholder="Email Address">
+						    <input type="email" id="email" name="email" placeholder="Email Address">
 						</div>
 
 				  		<div class="grouped fields">
+
 
 				    		 <h4><label id="radio" for="networkSignup">Select your affiliation:</label></h4>
 
@@ -360,9 +363,10 @@
 
 
 					  	<button class="ui button cancel">Cancel</button>
-					  	<button class="ui teal button" id="submit" type="submit">Submit
-					  	</button>
-					  		
+					  	<div class="ui teal submit button" id="submit">Submit
+
+					  	</div>
+					  			 <div class="ui error message"></div>
 					</form>
 
 				</div>
@@ -377,7 +381,7 @@
 </div>
 
 
-	<div id="wrapper3">
+	<div id="wrapper3" data-stellar-background-ratio="0.5">
 		
 			<h3 class="page2Title border"> The Network</h3>
 				<div class= "container" id="network">
