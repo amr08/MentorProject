@@ -2,7 +2,7 @@
 
 The Mentor Project
 
-An online mentorship and networking platform for those interested in higher education, but possibly feeling overwhemled or uncertain of how to start the process. Users can browse the resources board to get a better idea of what to expect.  The Network Project allows users the opportunity to submit their information and location in order to be recognized as a mentor or mentee. 
+An online mentorship and networking platform for those interested in seeking out higher education, but who may be feeling overwhemled or uncertain of how to start the process. Users can browse the resources board to get a better idea of what to expect.  In addition, the Network Project allows users the opportunity to submit their information and location in order to be recognized as a mentor or mentee. 
 
 
 Technologies used:
@@ -20,6 +20,7 @@ Bootstrap
 Google Maps API
 
 Google Search API
+
 
 
 Getting Started
@@ -41,6 +42,7 @@ Prerequisities:
 
 - Google Maps API:  "https://maps.googleapis.com/maps/api/js?key=AIzaSyAetju9T5CZukRPRTUFU8DpOT3M85pssOo&callback=initialize&libraries=places"
    
+
 
 
 Built with:
