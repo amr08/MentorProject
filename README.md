@@ -2,7 +2,7 @@
 
 The Mentor Project
 
-An online mentorship and networking platform for those interested in seeking out higher education, but who may be feeling overwhemled or uncertain of how to start the process. Users can browse the resources board to get a better idea of what to expect.  In addition, The Network allows users the opportunity to submit their information and location in order to be recognized as a mentor or mentee. 
+An online mentorship and networking platform for those interested in seeking out higher education, but who may be feeling overwhelmed or uncertain of how to start the process. Users can browse the resources board to get a better idea of what to expect.  In addition, The Network allows users the opportunity to submit their information and location in order to be recognized as a mentor or mentee. 
 
 
 Technologies used:
