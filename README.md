@@ -52,6 +52,17 @@ Built with:
 - Video tutorials
 
 - Pen, paper, and creative thought - :)
+<br>
+
+
+Contributers:
+
+
+Andrea Roche - Frontend and Backend
+
+Charles Prestia - Backend 
+
+Jeremy McKellar - Backend
 
 
 
